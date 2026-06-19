@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retalho de Açúcar · Bolos de Rolo</title>
+<meta name="description" content="Bolos de rolo artesanais. Tradicionais, juninos, gourmet e para festas. Encomende pelo WhatsApp.">
+<meta name="whatsapp" content="5582996342899">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FCFCFB;
+    --paper:#FFFFFF;
+    --ink:#0E0E0D;
+    --ink-2:#3A3A38;
+    --muted:#8A8A85;
+    --line:#E8E7E3;
+    --line-2:#F1F0EC;
+    --accent:#B57E22;
+    --accent-soft:#F6EEDF;
+    --wa:#111;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.05;letter-spacing:-.02em}
+  .mono{font-family:'Space Mono',monospace}
+  svg{display:block}
+  a{color:inherit}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* eyebrow / labels */
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- TOPBAR ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(252,252,251,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar .row{display:flex;align-items:center;height:62px;gap:18px}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:9px}
+  .brand .sq{width:24px;height:24px;border:1.5px solid var(--ink);border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:700}
+  .topbar nav{margin-left:auto;display:flex;gap:4px}
+  .topbar nav a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:7px 11px;border-radius:8px;transition:.15s}
+  .topbar nav a:hover{background:var(--line-2);color:var(--ink)}
+  .topbar .wa-link{margin-left:6px;font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);
+    border:1px solid var(--ink);padding:8px 15px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;transition:.15s}
+  .topbar .wa-link:hover{background:var(--ink);color:#fff}
+  .topbar .wa-link:hover svg{fill:#fff}
+  .topbar .wa-link svg{width:14px;height:14px;fill:var(--ink);transition:.15s}
+  @media(max-width:780px){.topbar nav{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:84px 0 56px;border-bottom:1px solid var(--line)}
+  .hero .eyebrow{display:block;margin-bottom:24px}
+  .hero h1{font-size:clamp(46px,8vw,92px);font-weight:500;letter-spacing:-.03em;max-width:14ch}
+  .hero h1 b{font-weight:600}
+  .hero h1 i{font-style:normal;color:var(--accent)}
+  .hero p{max-width:46ch;margin-top:26px;font-size:18px;color:var(--ink-2)}
+  .hero .row-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;align-items:center}
+  .btn{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;
+    display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:999px;transition:.18s;border:1px solid transparent}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{transform:translateY(-2px)}
+  .btn-dark svg{width:18px;height:18px;fill:#fff}
+  .btn-line{border-color:var(--line);color:var(--ink);background:var(--paper)}
+  .btn-line:hover{border-color:var(--ink)}
+  .btn-line svg{width:15px;height:15px;stroke:var(--ink);fill:none;stroke-width:2}
+
+  /* stat strip */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:56px}
+  .stat-strip div{padding:22px 4px 6px}
+  .stat-strip b{font-family:'Space Mono',monospace;font-size:26px;font-weight:700;display:block;letter-spacing:-.02em}
+  .stat-strip span{font-size:12px;color:var(--muted);letter-spacing:.04em}
+  @media(max-width:600px){.stat-strip{grid-template-columns:repeat(2,1fr)}.stat-strip div{border-top:1px solid var(--line-2)}}
+
+  /* ---------- SECTION ---------- */
+  section.menu{padding:64px 0 8px}
+  .sec-head{display:flex;align-items:flex-end;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:18px;margin-bottom:34px}
+  .sec-head .num{font-family:'Space Mono',monospace;font-size:14px;color:var(--accent);font-weight:700}
+  .sec-head h2{font-size:clamp(28px,5vw,44px);font-weight:500}
+  .sec-head .meta{margin-left:auto;font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+  @media(max-width:560px){.sec-head .meta{display:none}}
+
+  /* ---------- CARDS ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--ink);transform:translateY(-3px)}
+  .card .photo{position:relative;aspect-ratio:5/4;background:var(--line-2);border-bottom:1px solid var(--line);overflow:hidden}
+  .card .photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .card:hover .photo img{transform:scale(1.04)}
+  .card .photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:var(--muted)}
+  .card .photo .ph svg{width:26px;height:26px;stroke:var(--muted);fill:none;stroke-width:1.4}
+  .card .photo .ph span{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+  .card .photo .tag{position:absolute;top:12px;left:12px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:4px 9px;border-radius:6px}
+  .card-body{padding:20px;display:flex;flex-direction:column;flex-grow:1}
+  .card h3{font-size:21px;font-weight:600;margin-bottom:6px}
+  .card .desc{font-size:13.5px;color:var(--ink-2);margin-bottom:8px;flex-grow:1}
+  .card .serves{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;margin-bottom:16px}
+
+  .sizes{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line-2)}
+  .size-btn{display:flex;align-items:center;gap:12px;padding:13px 2px;text-decoration:none;
+    border-bottom:1px solid var(--line-2);transition:.15s}
+  .size-btn:last-child{border-bottom:none}
+  .size-btn:hover{padding-left:8px;padding-right:0}
+  .size-btn .sz{font-size:14px;font-weight:600}
+  .size-btn .perkg{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-left:6px}
+  .size-btn .pr{margin-left:auto;font-family:'Space Mono',monospace;font-size:15px;font-weight:700}
+  .size-btn .pr .from{font-size:9px;font-weight:400;color:var(--muted);display:block;text-align:right;letter-spacing:.06em;text-transform:uppercase}
+  .size-btn .arrow{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.15s}
+  .size-btn .arrow svg{width:13px;height:13px;stroke:var(--ink);fill:none;stroke-width:2}
+  .size-btn:hover .arrow{background:var(--ink);border-color:var(--ink)}
+  .size-btn:hover .arrow svg{stroke:#fff}
+
+  /* ---------- FESTAS ---------- */
+  .events{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+  .occasion{font-size:13.5px;font-weight:500;text-decoration:none;color:var(--ink);
+    border:1px solid var(--line);border-radius:999px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+  .occasion:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+  .occasion .d{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent)}
+  .occasion:hover .d{color:#fff}
+  .grid.two{grid-template-columns:repeat(2,minmax(290px,1fr))}
+  @media(max-width:640px){.grid.two{grid-template-columns:1fr}}
+  .order-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;
+    text-decoration:none;border:1px solid var(--ink);border-radius:10px;padding:13px 16px;font-weight:600;font-size:14px;transition:.15s}
+  .order-cta:hover{background:var(--ink);color:#fff}
+  .order-cta:hover svg{stroke:#fff}
+  .order-cta svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:2}
+  .price-line{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:16px;letter-spacing:.03em}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .gallery .shot{aspect-ratio:1;background:var(--line-2);border:1px solid var(--line);border-radius:10px;overflow:hidden;position:relative}
+  .gallery .shot img{width:100%;height:100%;object-fit:cover}
+  .gallery .shot .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted)}
+  .gallery .shot .ph svg{width:22px;height:22px;stroke:var(--muted);fill:none;stroke-width:1.4}
+  @media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- STORY ---------- */
+  .story{margin-top:72px;padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+  .story h2{font-size:clamp(26px,5vw,40px);font-weight:500;max-width:18ch;margin:14px auto 16px}
+  .story p{max-width:54ch;margin:0 auto;color:var(--ink-2);font-size:16px}
+  .quote{max-width:60ch;margin:40px auto 0}
+  .quote p{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;color:var(--ink);line-height:1.4;letter-spacing:-.01em}
+  .quote .who{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-top:14px;letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---------- FINAL ---------- */
+  .final{text-align:center;padding:80px 0}
+  .final h2{font-size:clamp(30px,6vw,56px);font-weight:500;letter-spacing:-.03em}
+  .final p{color:var(--ink-2);margin:16px auto 30px;max-width:42ch}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:34px 0}
+  footer .row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  footer .brand{font-size:14px}
+  footer .f-links{margin-left:auto;display:flex;gap:18px}
+  footer a{font-size:13px;color:var(--ink-2);text-decoration:none;transition:.15s}
+  footer a:hover{color:var(--ink)}
+  footer small{display:block;color:var(--muted);font-family:'Space Mono',monospace;font-size:11px;margin-top:14px;letter-spacing:.04em}
+
+  /* ---------- STICKY MOBILE ---------- */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(252,252,251,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex}
+  .sticky a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--ink);color:#fff;
+    font-weight:600;font-size:15px;padding:14px;border-radius:10px;text-decoration:none}
+  .sticky a svg{width:18px;height:18px;fill:#fff}
+  @media(min-width:780px){body{padding-bottom:0}.sticky{display:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.413c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+</defs></svg>
+
+<div class="topbar">
+  <div class="wrap row">
+    <a class="brand" href="#"><span class="sq">R</span>RETALHO DE AÇÚCAR</a>
+    <nav>
+      <a href="#tradicionais">Tradicionais</a>
+      <a href="#juninos">Juninos</a>
+      <a href="#gourmet">Gourmet</a>
+      <a href="#festas">Festas</a>
+    </nav>
+    <a class="wa-link" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido."><svg><use href="#i-wa"/></svg>Pedir</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Bolos de rolo artesanais · desde sempre</span>
+    <h1>O bolo de rolo que vira <i>memória</i>.</h1>
+    <p>Enrolado à mão, camada sobre camada. Massa fina, recheio generoso e o cuidado de quem faz com afeto.</p>
+    <div class="row-cta">
+      <a class="btn btn-dark" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido."><svg><use href="#i-wa"/></svg>Encomendar no WhatsApp</a>
+      <a class="btn btn-line" href="#tradicionais"><svg><use href="#i-down"/></svg>Ver cardápio</a>
+    </div>
+    <div class="stat-strip">
+      <div><b>+500</b><span>bolos entregues</span></div>
+      <div><b>5,0</b><span>nota dos clientes</span></div>
+      <div><b>100%</b><span>feito na hora</span></div>
+      <div><b>0</b><span>conservantes</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="menu reveal" id="tradicionais">
+    <div class="sec-head"><span class="num">01</span><h2>Tradicionais</h2><span class="meta">os clássicos</span></div>
+    <div class="grid" data-cat="tradicionais"></div>
+  </section>
+
+  <section class="menu reveal" id="juninos">
+    <div class="sec-head"><span class="num">02</span><h2>Juninos</h2><span class="meta">edição de época</span></div>
+    <div class="grid" data-cat="juninos"></div>
+  </section>
+
+  <section class="menu reveal" id="gourmet">
+    <div class="sec-head"><span class="num">03</span><h2>Gourmet</h2><span class="meta">linha premium</span></div>
+    <div class="grid" data-cat="gourmet"></div>
+  </section>
+
+  <section class="menu reveal" id="festas">
+    <div class="sec-head"><span class="num">04</span><h2>Para sua festa</h2><span class="meta">sob medida</span></div>
+    <div class="events">
+      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um aniversário."><span class="d">/</span>Aniversários</a>
+      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um batizado."><span class="d">/</span>Batizados</a>
+      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um chá de bebê."><span class="d">/</span>Chá de bebê</a>
+      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para uma formatura."><span class="d">/</span>Formaturas</a>
+      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um casamento ou evento."><span class="d">/</span>Casamentos</a>
+    </div>
+    <div class="grid two">
+      <article class="card">
+        <div class="photo"><div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div><span class="tag">queridinho</span></div>
+        <div class="card-body">
+          <h3>Minis de Rolo</h3>
+          <p class="desc">Versões individuais, do tamanho de uma porção. Mesa de doces, lembrancinha ou bem-casado. Vários sabores no mesmo pedido.</p>
+          <p class="price-line">orçamento por quantidade · a partir de 20 un</p>
+          <a class="order-cta" data-wa="Olá! Quero um orçamento dos Minis de Rolo para um evento.">Pedir orçamento<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="photo"><div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div></div>
+        <div class="card-body">
+          <h3>Bolos de Festa</h3>
+          <p class="desc">O bolo de rolo em formato de festa: maior, decorado e no tema do seu evento. Sabor à sua escolha, do clássico ao gourmet.</p>
+          <p class="price-line">tamanho e decoração sob medida</p>
+          <a class="order-cta" data-wa="Olá! Quero um orçamento de Bolo de Festa (bolo de rolo decorado).">Pedir orçamento<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="menu reveal" id="galeria">
+    <div class="sec-head"><span class="num">05</span><h2>Da nossa cozinha</h2><span class="meta">feito por nós</span></div>
+    <div class="gallery" id="galeria-grid"></div>
+  </section>
+
+  <div class="story reveal">
+    <span class="eyebrow">Nossa história</span>
+    <h2>Feito de retalho, cheio de afeto.</h2>
+    <p>Nascido da tradição pernambucana do bolo de rolo. Pequenas fornadas, sempre por encomenda, porque o melhor bolo é o feito na medida certa: fresco, no tempo de quem espera com carinho.</p>
+    <div class="quote">
+      <p>"O melhor bolo de rolo que já comi. Massa fininha de verdade, recheio na medida."</p>
+      <div class="who">Cliente · Maceió</div>
+    </div>
+  </div>
+
+  <section class="final reveal">
+    <h2>Bateu a vontade?</h2>
+    <p>Escolhe o sabor, manda mensagem e a gente cuida do resto.</p>
+    <a class="btn btn-dark" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido."><svg><use href="#i-wa"/></svg>Encomendar agora</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a class="brand" href="#"><span class="sq">R</span>RETALHO DE AÇÚCAR</a>
+      <div class="f-links">
+        <a href="https://www.instagram.com/retalhodeacucar/" target="_blank" rel="noopener">Instagram</a>
+        <a data-wa="Olá! Vim pelo cardápio e quero fazer um pedido.">(82) 99634-2899</a>
+      </div>
+    </div>
+    <small>© Retalho de Açúcar · Bolos de Rolo Artesanais · Maceió</small>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a data-wa="Olá! Vim pelo cardápio e quero fazer um pedido."><svg><use href="#i-wa"/></svg>Encomendar no WhatsApp</a>
+</div>
+
+<script>
+  // ============ PRODUTOS: edite precos/sabores aqui ============
+  // from:true => "a partir de".  img:"fotos/x.jpg" => foto (vazio = placeholder).
+  const MENU = {
+    tradicionais:[
+      {nome:"Goiabada",hot:true,img:"",desc:"Goiabada cascão derretida entre camadas finíssimas. A receita que começou tudo.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:65},{g:"600 g",preco:35}]},
+      {nome:"Doce de Leite",img:"",desc:"Doce de leite cremoso e amanteigado, enrolado camada por camada. Aveludado e encorpado.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]},
+      {nome:"Café",img:"",desc:"O amargor delicado do café equilibrando o doce. Pro paladar adulto, perfeito com espresso.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]}
+    ],
+    juninos:[
+      {nome:"Milho",img:"",desc:"O São João em forma de rolo. Sabor que só aparece nesta época.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Macaxeira",img:"",desc:"Aconchego de roça, macio e perfumado. Edição junina.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Paçoca",img:"",desc:"Amendoim em forma de afeto. Quem prova, encomenda de novo.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Cocada Cremosa",img:"",desc:"Coco cremoso e dourado, doçura de festa.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Pé de Moleque",img:"",desc:"Amendoim torrado e o caramelo da infância, enrolado. Crocância e memória afetiva.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:80},{g:"600 g",preco:45}]}
+    ],
+    gourmet:[
+      {nome:"Chocolate",img:"",desc:"Pura indulgência, chocolate em camadas generosas.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Ninho com Nutella",hot:true,img:"",desc:"O queridinho da linha. Cremosidade do Ninho com a Nutella.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Oreo",img:"",desc:"Crocante e cremoso, pra quem ama biscoito.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Outros sabores",img:"",desc:"Pra presentear, comemorar ou se dar um luxo. Chama que a gente cria.",from:true,sizes:[{g:"sob encomenda",preco:85}]}
+    ]
+  };
+  const GALLERY = [{img:"",alt:"Foto 1"},{img:"",alt:"Foto 2"},{img:"",alt:"Foto 3"},{img:"",alt:"Foto 4"}];
+
+  const PHONE = document.querySelector('meta[name="whatsapp"]').content.replace(/\D/g,'');
+  const brl = n => "R$ " + Number(n).toFixed(2).replace(".",",");
+  const waURL = m => `https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`;
+  const perKg = s => {
+    if(typeof s.preco!=="number") return null;
+    const m = String(s.g).match(/([\d.,]+)\s*kg/i) || String(s.g).match(/(\d+)\s*g/i);
+    if(!m) return null;
+    let g = /kg/i.test(s.g) ? parseFloat(m[1].replace(",","."))*1000 : parseFloat(m[1]);
+    return g ? s.preco/(g/1000) : null;
+  };
+
+  document.querySelectorAll('.grid[data-cat]').forEach(grid=>{
+    const list = MENU[grid.dataset.cat] || [];
+    grid.innerHTML = list.map(p=>{
+      const photo = `<div class="photo">${p.img
+        ? `<img src="${p.img}" alt="Bolo de Rolo ${p.nome}" loading="lazy">`
+        : `<div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div>`}${p.hot?`<span class="tag">mais pedido</span>`:""}</div>`;
+      const sizes = p.sizes.map(s=>{
+        const sob = typeof s.preco!=="number";
+        const precoTxt = sob ? s.preco : brl(s.preco);
+        const kg = perKg(s);
+        const perTxt = kg ? `<span class="perkg">${brl(kg)}/kg</span>` : "";
+        const fromTag = (p.from && !sob) ? `<span class="from">a partir de</span>` : "";
+        const msgPreco = p.from ? `a partir de ${precoTxt}` : precoTxt;
+        const msg = `Olá! Quero encomendar o Bolo de Rolo ${p.nome} (${s.g}), ${msgPreco}. Pode me ajudar?`;
+        return `<a class="size-btn" href="${waURL(msg)}" target="_blank" rel="noopener">
+                  <span class="sz">${s.g}</span>${perTxt}
+                  <span class="pr">${fromTag}${precoTxt}</span>
+                  <span class="arrow"><svg><use href="#i-arrow"/></svg></span>
+                </a>`;
+      }).join("");
+      return `<article class="card">${photo}<div class="card-body">
+                <h3>${p.nome}</h3>
+                <p class="desc">${p.desc||""}</p>
+                ${p.serves?`<p class="serves">${p.serves}</p>`:""}
+                <div class="sizes">${sizes}</div>
+              </div></article>`;
+    }).join("");
+  });
+
+  const gg = document.getElementById('galeria-grid');
+  if(gg) gg.innerHTML = GALLERY.map(s=>`<div class="shot">${s.img
+    ? `<img src="${s.img}" alt="${s.alt||''}" loading="lazy">`
+    : `<div class="ph"><svg><use href="#i-img"/></svg></div>`}</div>`).join("");
+
+  document.querySelectorAll('[data-wa]').forEach(el=>{el.href=waURL(el.dataset.wa);el.target="_blank";el.rel="noopener";});
+
+  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
