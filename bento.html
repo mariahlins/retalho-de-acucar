@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retalho de Açúcar · Bolos de Rolo Artesanais</title>
+<meta name="description" content="Bolos de rolo artesanais: tradicionais, juninos e gourmet. Massa fina, recheio generoso, feito à mão com afeto. Encomende pelo WhatsApp.">
+
+<!-- TROQUE AQUI o numero (so digitos): 55 + DDD + numero -->
+<meta name="whatsapp" content="5582996342899">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#F6EEDF; --card:#FFFDF8; --ink:#241A10; --ink-soft:#7A6450;
+    --gold:#C68A1E; --gold-2:#E0A93A; --gold-deep:#93640F; --terra:#C2562A;
+    --wa:#1FAB54; --wa-dk:#178a43; --line:#E7D6B6;
+    --shadow:0 18px 44px -14px rgba(36,26,16,.26);
+    --shadow-sm:0 8px 22px -10px rgba(36,26,16,.20);
+    --glow:0 10px 28px -8px rgba(198,138,30,.5);
+    --r:26px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);
+    line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:88px;overflow-x:hidden}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.04;letter-spacing:-.6px}
+  svg{display:block}
+  a{color:inherit}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* topbar */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(246,238,223,.8);backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,214,182,.6)}
+  .topbar .row{display:flex;align-items:center;gap:14px;height:62px}
+  .topbar .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:18px;text-decoration:none}
+  .topbar .mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--gold-2),var(--terra));font-size:19px}
+  .topbar nav{margin-left:auto;display:flex;gap:4px}
+  .topbar nav a{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:14px;padding:8px 12px;border-radius:10px;transition:.15s}
+  .topbar nav a:hover{background:rgba(231,214,182,.5);color:var(--ink)}
+  .topbar .mini{margin-left:4px;background:var(--wa);color:#fff;padding:9px 15px;border-radius:11px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+  .topbar .mini svg{width:16px;height:16px;fill:#fff}
+  @media(max-width:760px){.topbar nav{display:none}}
+
+  /* ===== BENTO GRID ===== */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:118px;grid-auto-flow:dense;margin-top:18px}
+  .tile{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);padding:22px;display:flex;flex-direction:column;justify-content:flex-end;
+    transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s;text-decoration:none}
+  .tile:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .c2{grid-column:span 2} .c3{grid-column:span 3} .c4{grid-column:span 4}
+  .r2{grid-row:span 2} .r3{grid-row:span 3}
+
+  /* tile variants */
+  .t-dark{background:linear-gradient(150deg,#2B2012,#3E2C18);color:#F3E7D2;border-color:rgba(255,255,255,.08)}
+  .t-dark::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 70%);opacity:.25;top:-90px;right:-70px;filter:blur(10px)}
+  .t-gold{background:linear-gradient(150deg,var(--gold-2),var(--terra));color:#fff;border:none}
+  .t-green{background:var(--wa);color:#fff;border:none;box-shadow:var(--glow)}
+  .t-green:hover{background:var(--wa-dk)}
+  .tile .top{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:auto}
+  .tile .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex:0 0 auto}
+  .tile .ic svg{width:23px;height:23px;stroke-width:1.7;fill:none}
+  .t-light .ic{background:linear-gradient(135deg,var(--cream),#fff);border:1px solid var(--line)} .t-light .ic svg{stroke:var(--gold-deep)}
+  .t-dark .ic{background:rgba(255,255,255,.1)} .t-dark .ic svg{stroke:var(--gold-2)}
+  .t-gold .ic,.t-green .ic{background:rgba(255,255,255,.2)} .t-gold .ic svg,.t-green .ic svg{stroke:#fff}
+  .tile .body{position:relative;z-index:1}
+  .tile h1{font-size:clamp(34px,6vw,52px)} .tile h1 .it{font-style:italic;color:var(--gold-2)}
+  .tile h2{font-size:26px} .tile h3{font-size:22px}
+  .tile .big{font-family:'Fraunces',serif;font-size:40px;line-height:1}
+  .tile .lbl{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.85;margin-top:5px}
+  .tile p{font-size:14px;opacity:.92;margin-top:6px}
+  .pulse-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.25);animation:pl 2s infinite;margin-right:8px;vertical-align:1px}
+  @keyframes pl{50%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
+  .arrowlink{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;margin-top:8px}
+  .arrowlink svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;transition:.2s}
+  .tile:hover .arrowlink svg{transform:translateX(4px)}
+  .wa-svg{width:22px;height:22px;fill:#fff}
+
+  /* image tile */
+  .t-photo{padding:0;justify-content:flex-end}
+  .t-photo .img{position:absolute;inset:0;background:linear-gradient(135deg,var(--cream),#EBD9B8)}
+  .t-photo .img img{width:100%;height:100%;object-fit:cover}
+  .t-photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-soft)}
+  .t-photo .ph svg{width:30px;height:30px;stroke:var(--gold);stroke-width:1.5;fill:none;opacity:.7}
+  .t-photo .ph span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+  .t-photo .cap{position:relative;z-index:1;margin:0 14px 14px;background:rgba(20,14,8,.55);backdrop-filter:blur(6px);color:#fff;border-radius:14px;padding:10px 14px}
+  .t-photo .cap b{font-family:'Fraunces',serif;font-size:18px;font-weight:600}
+  .t-photo .cap span{display:block;font-size:12px;opacity:.85}
+
+  /* section heading */
+  .sechead{display:flex;align-items:center;gap:14px;margin:54px 0 0}
+  .sechead .si{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold-2),var(--terra));box-shadow:var(--glow);flex:0 0 auto}
+  .sechead .si svg{width:25px;height:25px;stroke:#fff;stroke-width:1.7;fill:none}
+  .sechead h2{font-size:clamp(28px,5vw,38px)}
+  .sechead .chip{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--terra);background:#FBE7DC;padding:6px 12px;border-radius:999px}
+  .secsub{color:var(--ink-soft);font-size:15px;margin:8px 0 0 64px}
+  @media(max-width:600px){.secsub{margin-left:0}.sechead .chip{display:none}}
+
+  /* grids de produto: altura natural (nao usa row fixo do hero bento) */
+  .bento.prod,.bento.prod-festa{grid-auto-rows:auto;align-items:start;margin-top:18px}
+
+  /* product tile */
+  .p-tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .p-tile:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .p-tile .photo{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--cream),#fff);border-bottom:1px solid var(--line);overflow:hidden}
+  .p-tile .photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+  .p-tile:hover .photo img{transform:scale(1.05)}
+  .p-tile .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:var(--ink-soft)}
+  .p-tile .ph svg{width:28px;height:28px;stroke:var(--gold);stroke-width:1.5;fill:none;opacity:.7}
+  .p-tile .ph span{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+  .p-tile .pbody{padding:20px;display:flex;flex-direction:column;flex-grow:1}
+  .p-tile .toprow{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+  .p-tile .cardic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cream),#fff);border:1px solid var(--line);flex:0 0 auto}
+  .p-tile .cardic svg{width:22px;height:22px;stroke:var(--gold-deep);stroke-width:1.7;fill:none}
+  .badge{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--gold-deep);background:var(--cream);padding:5px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:5px}
+  .badge.hot{background:var(--terra);color:#fff}
+  .badge svg{width:12px;height:12px;fill:currentColor}
+  .p-tile h3{font-size:24px;margin-bottom:6px}
+  .p-tile .desc{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;flex-grow:1}
+  .p-tile .serves{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--gold-deep);margin-bottom:15px}
+  .p-tile .serves svg{width:14px;height:14px;stroke:var(--gold-deep);stroke-width:1.8;fill:none}
+  .sizes{display:flex;flex-direction:column;gap:9px;margin-top:auto}
+  .size-btn{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 15px;text-decoration:none;transition:.15s}
+  .size-btn:hover{border-color:var(--wa);background:#F2FBF5;transform:translateX(2px)}
+  .size-btn .left{display:flex;flex-direction:column;line-height:1.25}
+  .size-btn .sz{font-weight:800;font-size:15px} .size-btn .perkg{font-size:11px;font-weight:600;color:var(--ink-soft)}
+  .size-btn .right{display:flex;align-items:center;gap:9px}
+  .size-btn .pr{display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+  .size-btn .pr .from{font-size:9.5px;font-weight:800;color:var(--ink-soft);text-transform:uppercase}
+  .size-btn .pr b{font-weight:800;color:var(--gold-deep);font-size:16px}
+  .size-btn .wic{width:30px;height:30px;border-radius:9px;background:var(--wa);display:grid;place-items:center;flex:0 0 auto;transition:.15s}
+  .size-btn .wic svg{width:16px;height:16px;fill:#fff} .size-btn:hover .wic{background:var(--wa-dk)}
+  .value-tag{position:absolute;top:-9px;right:13px;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--terra);padding:3px 9px;border-radius:999px}
+  .card-cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:auto;background:var(--wa);color:#fff;font-weight:800;font-size:15px;padding:14px;border-radius:14px;text-decoration:none;transition:.15s}
+  .card-cta:hover{background:var(--wa-dk)} .card-cta svg{width:19px;height:19px;fill:#fff}
+  .price-line{font-size:13px;font-weight:700;color:var(--gold-deep);margin-bottom:15px}
+
+  /* festas occasions bento */
+  .occ{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center}
+  .occ .oic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold-2),var(--terra))}
+  .occ .oic svg{width:23px;height:23px;stroke:#fff;stroke-width:1.7;fill:none}
+  .occ b{font-size:13px;font-weight:800}
+
+  /* footer */
+  footer{background:linear-gradient(150deg,#2B2012,#3E2C18);color:#C9B79A;text-align:center;padding:42px 22px;margin-top:54px;border-radius:var(--r) var(--r) 0 0}
+  footer .logo{display:inline-flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:16px}
+  footer .logo .mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--gold-2),var(--terra));font-size:21px}
+  footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  footer .links a{color:#E6D6BB;text-decoration:none;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+  footer .links a:hover{color:var(--gold-2)} footer .links svg{width:18px;height:18px;fill:currentColor}
+  footer small{display:block;color:#8C7A60;font-size:12.5px;margin-top:6px}
+
+  /* sticky mobile */
+  .stickybar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(246,238,223,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .stickybar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;font-weight:800;font-size:16px;padding:15px;border-radius:13px;text-decoration:none;box-shadow:var(--glow)}
+  .stickybar a svg{width:20px;height:20px;fill:#fff}
+  @media(min-width:760px){body{padding-bottom:0}.stickybar{display:none}}
+
+  /* ===== responsive bento ===== */
+  @media(max-width:860px){
+    .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+    .c3,.c4{grid-column:span 2} .r3{grid-row:span 2}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 14px}
+    .bento{gap:10px}
+    .c2{grid-column:span 2}
+    .tile{padding:18px}
+    .tile h1{font-size:38px}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.413c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></symbol>
+  <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8M4 16s1.5-2 4-2 4 2 4 2 1.5-2 4-2 4 2 4 2M2 21h20M7 8v2M12 8v2M17 8v2M7 5a1 1 0 1 0 .001-2A1 1 0 0 0 7 5zM12 5a1 1 0 1 0 .001-2A1 1 0 0 0 12 5zM17 5a1 1 0 1 0 .001-2A1 1 0 0 0 17 5z"/></symbol>
+  <symbol id="i-corn" viewBox="0 0 24 24"><path d="M12 2c4 0 6 4 6 9s-3 11-6 11-6-6-6-11 2-9 6-9zM12 4v18M9 8l3-1.5M15 8l-3-1.5M9 12l3-1.5M15 12l-3-1.5M9 16l3-1.5M15 16l-3-1.5"/></symbol>
+  <symbol id="i-peanut" viewBox="0 0 24 24"><path d="M12 2c-2.5 0-4.5 2-4.5 4.5 0 1.5.7 2.8 1.7 3.6-1 .8-1.7 2.1-1.7 3.6C7.5 18 9.5 22 12 22s4.5-4 4.5-8.3c0-1.5-.7-2.8-1.7-3.6 1-.8 1.7-2.1 1.7-3.6C16.5 4 14.5 2 12 2zM9 6.5h6M9 13.5h6"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5zM19 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 8 8h2a8 8 0 0 0 8-8v-1a2 2 0 0 0-4 0"/></symbol>
+  <symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 .5-2S6 11 6 14a6 6 0 0 0 12 0c0-5-6-12-6-12z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .5-5.5 4.5 1.5 7L12 17l-6 3.5 1.5-7L2 9l7-.5z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 7.84A4.16 4.16 0 1 0 12 16.16 4.16 4.16 0 0 0 12 7.84zm0 6.86A2.7 2.7 0 1 1 12 9.3a2.7 2.7 0 0 1 0 5.4zm5.3-7.03a.97.97 0 1 1-1.94 0 .97.97 0 0 1 1.94 0z"/></symbol>
+  <symbol id="i-party" viewBox="0 0 24 24"><path d="M2 22l5-14 9 9-14 5zM14 8l1.5-3M18 12l3-1.5M15 4l.01.01M20 6l.01.01M21 10l.01.01"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18M12 8v13M12 8S10 3 7.5 4 9 8 12 8zM12 8s2-5 4.5-4S15 8 12 8z"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1.3 3 2.2 6 2.2s6-.9 6-2.2v-5M22 10v5"/></symbol>
+  <symbol id="i-baby" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M9 7.5c1.5 1.2 4.5 1.2 6 0M6 21v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/></symbol>
+  <symbol id="i-rings" viewBox="0 0 24 24"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M9 9l1.2-3h3.6L15 9"/></symbol>
+  <symbol id="i-mini" viewBox="0 0 24 24"><path d="M6 11h12l-1.4 9H7.4zM6.5 11a3.5 3.5 0 0 1 .4-6.4 4 4 0 0 1 10.6.6 3 3 0 0 1-.5 5.8M12 3.5V2"/></symbol>
+  <symbol id="i-tier" viewBox="0 0 24 24"><path d="M9 7V5M12 7V4M15 7V5M5 11h14v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zM7 16h10v3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2zM3 21h18"/></symbol>
+</defs></svg>
+
+<div class="topbar">
+  <div class="wrap row">
+    <a class="logo" href="#"><span class="mark">R</span> Retalho de Açúcar</a>
+    <nav>
+      <a href="#tradicionais">Tradicionais</a>
+      <a href="#juninos">Juninos</a>
+      <a href="#gourmet">Gourmet</a>
+      <a href="#festas">Festas</a>
+    </nav>
+    <a class="mini" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Pedir</a>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ===== HERO BENTO ===== -->
+  <section class="bento reveal">
+    <div class="tile t-dark c2 r2">
+      <div class="top"><span style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold-2)">Bolo de Rolo Artesanal</span></div>
+      <div class="body">
+        <h1>O bolo de rolo<br>que vira <span class="it">memória</span>.</h1>
+        <p>Enrolado à mão, camada sobre camada. Massa fina, recheio generoso, feito com afeto.</p>
+      </div>
+    </div>
+
+    <a class="tile t-green c2" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡">
+      <div class="top"><span class="ic"><svg><use href="#i-wa"/></svg></span></div>
+      <div class="body"><h3 style="color:#fff">Pedir no WhatsApp</h3><span class="arrowlink">Resposta rápida <svg><use href="#i-arrow"/></svg></span></div>
+    </a>
+
+    <div class="tile t-light">
+      <div class="top"><span class="ic"><svg><use href="#i-star"/></svg></span></div>
+      <div class="body"><span class="big" style="color:var(--gold-deep)">5,0</span><div class="lbl" style="color:var(--ink-soft)">+500 clientes</div></div>
+    </div>
+
+    <div class="tile t-light">
+      <div class="top"><span class="ic"><svg><use href="#i-hand"/></svg></span></div>
+      <div class="body"><b style="font-family:'Fraunces',serif;font-size:19px">Feito à mão</b><div class="lbl" style="color:var(--ink-soft)">camada por camada</div></div>
+    </div>
+
+    <a class="tile t-photo c2 r2" href="#tradicionais">
+      <div class="img"><div class="ph"><svg><use href="#i-img"/></svg><span>foto em destaque</span></div></div>
+      <div class="cap"><b>Goiabada</b><span>o queridinho da casa · a partir de R$ 35</span></div>
+    </a>
+
+    <div class="tile t-gold c2">
+      <div class="top"><span class="ic"><svg><use href="#i-clock"/></svg></span></div>
+      <div class="body"><b style="font-family:'Fraunces',serif;font-size:21px"><span class="pulse-dot"></span>Fornadas limitadas por dia</b><p>Encomende com antecedência e garanta a sua data.</p></div>
+    </div>
+
+    <div class="tile t-light">
+      <div class="top"><span class="ic"><svg><use href="#i-leaf"/></svg></span></div>
+      <div class="body"><b style="font-family:'Fraunces',serif;font-size:18px">Sem conservante</b><div class="lbl" style="color:var(--ink-soft)">ingredientes reais</div></div>
+    </div>
+
+    <div class="tile t-light">
+      <div class="top"><span class="ic"><svg><use href="#i-clock"/></svg></span></div>
+      <div class="body"><b style="font-family:'Fraunces',serif;font-size:18px">Fresco na hora</b><div class="lbl" style="color:var(--ink-soft)">sob encomenda</div></div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section id="tradicionais">
+    <div class="sechead reveal"><span class="si"><svg><use href="#i-cake"/></svg></span><h2>Os Tradicionais</h2><span class="chip">os clássicos</span></div>
+    <p class="secsub reveal">O sabor de casa que nunca sai de moda. Onde tudo começou.</p>
+    <div class="bento prod reveal" data-cat="tradicionais"></div>
+  </section>
+
+  <section id="juninos">
+    <div class="sechead reveal"><span class="si"><svg><use href="#i-corn"/></svg></span><h2>Os Juninos</h2><span class="chip">edição de época</span></div>
+    <p class="secsub reveal">O melhor do São João em forma de bolo de rolo. Por tempo limitado.</p>
+    <div class="bento prod reveal" data-cat="juninos"></div>
+  </section>
+
+  <section id="gourmet">
+    <div class="sechead reveal"><span class="si"><svg><use href="#i-sparkle"/></svg></span><h2>Os Gourmet</h2><span class="chip">linha premium</span></div>
+    <p class="secsub reveal">Recheios premium em camadas generosas. Quer outro sabor? A gente cria pra você.</p>
+    <div class="bento prod reveal" data-cat="gourmet"></div>
+  </section>
+
+  <!-- ===== FESTAS ===== -->
+  <section id="festas">
+    <div class="sechead reveal"><span class="si"><svg><use href="#i-party"/></svg></span><h2>Encomende para sua festa</h2><span class="chip">sob medida</span></div>
+    <p class="secsub reveal">Aniversário, batizado, chá de bebê, formatura ou casamento. A gente monta do seu jeito.</p>
+    <div class="bento reveal" style="grid-auto-rows:100px">
+      <a class="tile t-light occ" data-wa="Olá! Quero um orçamento de bolo de rolo para um *aniversário* 🎂"><span class="oic"><svg><use href="#i-gift"/></svg></span><b>Aniversários</b></a>
+      <a class="tile t-light occ" data-wa="Olá! Quero um orçamento de bolo de rolo para um *batizado* 🤍"><span class="oic"><svg><use href="#i-rings"/></svg></span><b>Batizados</b></a>
+      <a class="tile t-light occ" data-wa="Olá! Quero um orçamento de bolo de rolo para um *chá de bebê* 🍼"><span class="oic"><svg><use href="#i-baby"/></svg></span><b>Chá de bebê</b></a>
+      <a class="tile t-light occ" data-wa="Olá! Quero um orçamento de bolo de rolo para uma *formatura* 🎓"><span class="oic"><svg><use href="#i-grad"/></svg></span><b>Formaturas</b></a>
+    </div>
+    <div class="bento prod-festa reveal" style="margin-top:14px"></div>
+  </section>
+
+</main>
+
+<footer class="reveal">
+  <div class="logo"><span class="mark">R</span> Retalho de Açúcar</div>
+  <div class="links">
+    <a href="https://www.instagram.com/retalhodeacucar/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@retalhodeacucar</a>
+    <a data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>(82) 99634-2899</a>
+  </div>
+  <small>Bolos de Rolo Artesanais · Maceió</small>
+  <small>© Retalho de Açúcar. Todos os direitos reservados</small>
+</footer>
+
+<div class="stickybar">
+  <a data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Encomendar no WhatsApp</a>
+</div>
+
+<script>
+  // PRODUTOS: edite precos/sabores aqui. from:true => "a partir de". img:"fotos/x.jpg" opcional.
+  const MENU = {
+    tradicionais:[
+      {nome:"Goiabada",icon:"i-cake",hot:true,img:"",desc:"Goiabada cascão derretida entre camadas finíssimas. A receita que começou tudo, doce na medida.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:65},{g:"600 g",preco:35}]},
+      {nome:"Doce de Leite",icon:"i-cake",desc:"Doce de leite cremoso e amanteigado, enrolado camada por camada.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]},
+      {nome:"Café",icon:"i-cake",desc:"O amargor delicado do café equilibrando o doce. Perfeito com espresso.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]}
+    ],
+    juninos:[
+      {nome:"Milho",icon:"i-corn",desc:"O São João em forma de rolo. Sabor que só aparece nesta época.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Macaxeira",icon:"i-corn",desc:"Aconchego de roça, macio e perfumado. Edição junina.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Paçoca",icon:"i-corn",desc:"Amendoim em forma de afeto. Quem prova, encomenda de novo.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Cocada Cremosa",icon:"i-corn",desc:"Coco cremoso e dourado, doçura de festa.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Pé de Moleque",icon:"i-peanut",hot:true,desc:"Amendoim torrado e o caramelo da infância, enrolado. Crocância e memória afetiva.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:80},{g:"600 g",preco:45}]}
+    ],
+    gourmet:[
+      {nome:"Chocolate",icon:"i-sparkle",desc:"Pura indulgência, chocolate em camadas generosas.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Ninho com Nutella",icon:"i-sparkle",hot:true,desc:"O queridinho da linha. Cremosidade do Ninho com a Nutella.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Oreo",icon:"i-sparkle",desc:"Crocante e cremoso, pra quem ama biscoito.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Outros sabores",icon:"i-sparkle",desc:"Pra presentear ou se dar um luxo. Chama que a gente cria.",from:true,sizes:[{g:"sob encomenda",preco:85}]}
+    ]
+  };
+  const FESTA = [
+    {nome:"Minis de Rolo",icon:"i-mini",hot:true,badge:"queridinho de festa",desc:"Versões individuais, do tamanho de uma porção. Mesa de doces, lembrancinha ou bem-casado. Vários sabores no mesmo pedido.",price:"Orçamento por quantidade · a partir de 20 unidades",wa:"Olá! Quero um orçamento dos *Minis de Rolo* para um evento. Pode me ajudar? 🧡"},
+    {nome:"Bolos de Festa",icon:"i-tier",badge:"centro de mesa",desc:"O bolo de rolo em formato de festa: maior, decorado e no tema do seu evento. Sabor à sua escolha, do clássico ao gourmet.",price:"Tamanho e decoração sob medida · orçamento personalizado",wa:"Olá! Quero um orçamento de *Bolo de Festa* (bolo de rolo decorado). Pode me ajudar? 🧡"}
+  ];
+
+  const PHONE = document.querySelector('meta[name="whatsapp"]').content.replace(/\D/g,'');
+  const brl = n => "R$ " + Number(n).toFixed(2).replace(".",",");
+  const waURL = m => `https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`;
+  const wic = `<span class="wic"><svg><use href="#i-wa"/></svg></span>`;
+  const perKg = s => {
+    if(typeof s.preco!=="number") return null;
+    const kg=/kg/i.test(s.g), m=String(s.g).match(/([\d.,]+)/); if(!m) return null;
+    let g = kg ? parseFloat(m[1].replace(",","."))*1000 : parseFloat(m[1]); if(!g) return null;
+    return s.preco/(g/1000);
+  };
+
+  function sizesHTML(p){
+    let best=-1,bv=Infinity; p.sizes.forEach((s,i)=>{const v=perKg(s); if(v!==null&&v<bv){bv=v;best=i}});
+    const many=p.sizes.length>1;
+    return p.sizes.map((s,i)=>{
+      const sob=typeof s.preco!=="number", precoTxt=sob?s.preco:brl(s.preco);
+      const fromTag=(p.from&&!sob)?`<span class="from">a partir de</span>`:"";
+      const kg=perKg(s), per=kg?`<span class="perkg">${brl(kg)}/kg</span>`:"";
+      const vtag=(many&&i===best)?`<span class="value-tag">melhor valor</span>`:"";
+      const msg=`Olá! Quero encomendar o Bolo de Rolo *${p.nome}* (${s.g}), ${p.from?"a partir de ":""}${precoTxt}. Pode me ajudar? 🧡`;
+      return `<a class="size-btn" href="${waURL(msg)}" target="_blank" rel="noopener">${vtag}
+        <span class="left"><span class="sz">${s.g}</span>${per}</span>
+        <span class="right"><span class="pr">${fromTag}<b>${precoTxt}</b></span>${wic}</span></a>`;
+    }).join("");
+  }
+
+  function prodTile(p){
+    const photo=`<div class="photo">${p.img?`<img src="${p.img}" alt="Bolo de Rolo ${p.nome}" loading="lazy">`:`<div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div>`}</div>`;
+    const badge=p.hot?`<span class="badge hot"><svg><use href="#i-fire"/></svg>mais pedido</span>`:`<span class="badge"><svg><use href="#i-hand"/></svg>artesanal</span>`;
+    const serves=p.serves?`<div class="serves"><svg><use href="#i-users"/></svg>${p.serves}</div>`:"";
+    const span=p.hot?"c2":"";   // destaque ocupa 2 colunas (bento assimetrico)
+    return `<article class="p-tile ${span}">${photo}
+      <div class="pbody">
+        <div class="toprow"><span class="cardic"><svg><use href="#${p.icon}"/></svg></span>${badge}</div>
+        <h3>${p.nome}</h3><p class="desc">${p.desc||""}</p>${serves}
+        <div class="sizes">${sizesHTML(p)}</div>
+      </div></article>`;
+  }
+
+  document.querySelectorAll('.bento.prod').forEach(g=>{
+    (MENU[g.dataset.cat]||[]).forEach(p=>{ g.insertAdjacentHTML('beforeend', prodTile(p)); });
+  });
+
+  // festas products
+  const pf=document.querySelector('.prod-festa');
+  if(pf){ pf.innerHTML = FESTA.map(f=>`
+    <article class="p-tile c2">
+      <div class="photo"><div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div></div>
+      <div class="pbody">
+        <div class="toprow"><span class="cardic"><svg><use href="#${f.icon}"/></svg></span><span class="badge ${f.hot?'hot':''}">${f.hot?'<svg><use href=\"#i-fire\"/></svg>':''}${f.badge}</span></div>
+        <h3>${f.nome}</h3><p class="desc">${f.desc}</p>
+        <p class="price-line">${f.price}</p>
+        <a class="card-cta" href="${waURL(f.wa)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Pedir orçamento</a>
+      </div></article>`).join(""); }
+
+  // make p-tile span rows so bento packs nicely
+  // (cada p-tile ocupa altura propria; auto-rows pequeno + dense organiza)
+
+  document.querySelectorAll('[data-wa]').forEach(el=>{ el.href=waURL(el.dataset.wa); el.target="_blank"; el.rel="noopener"; });
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
