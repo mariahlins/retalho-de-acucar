@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retalho de Açúcar · Bolos de Rolo Artesanais</title>
-<meta name="description" content="Bolos de rolo artesanais: tradicionais, juninos e gourmet. Massa fina, recheio generoso, feito à mão com afeto. Encomende pelo WhatsApp.">
+<title>Retalho de Açúcar · Edição Bolo de Rolo</title>
+<meta name="description" content="Bolos de rolo artesanais. Tradicionais, juninos e gourmet. Massa fina, recheio generoso, feito à mão com afeto. Encomende pelo WhatsApp.">
 
 <!-- =================================================== -->
 <!-- TROQUE AQUI se mudar o numero (so digitos):         -->
@@ -14,584 +14,455 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --cream:      #FAF3E6;
-    --cream-2:    #F2E6CE;
-    --card:       #FFFDF8;
-    --ink:        #2C2014;
-    --ink-2:      #4A3927;
-    --ink-soft:   #7A6450;
-    --gold:       #C68A1E;
-    --gold-2:     #E0A93A;
-    --gold-deep:  #93640F;
-    --terra:      #C2562A;
-    --wa:         #1FAB54;
-    --wa-dk:      #178a43;
-    --line:       #EBDABA;
-    --line-2:     #F3E9D3;
-    --dark:       #241A10;
-    --shadow:     0 18px 44px -12px rgba(58,42,26,.22);
-    --shadow-sm:  0 6px 20px -6px rgba(58,42,26,.16);
-    --glow:       0 8px 24px -6px rgba(198,138,30,.45);
-    --r:          24px;
-    --r-sm:       15px;
+    --paper:    #F7F0E1;
+    --paper-2:  #EFE5D0;
+    --ink:      #1C1611;
+    --ink-2:    #3A2F25;
+    --ink-soft: #6B5B4A;
+    --accent:   #B0461E;   /* terracota editorial */
+    --gold:     #9A6B12;
+    --rule:     #D6C5A4;
+    --rule-2:   #C0AB85;
+    --wa:       #1FAB54;
+    --wa-dk:    #178a43;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-    background:var(--cream);color:var(--ink);line-height:1.6;
-    -webkit-font-smoothing:antialiased;padding-bottom:88px;overflow-x:hidden;
+    background:var(--paper);color:var(--ink);
+    font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;padding-bottom:78px;
   }
-  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.07;letter-spacing:-.6px}
+  ::selection{background:var(--accent);color:var(--paper)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .col{max-width:680px}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.04;letter-spacing:-.4px}
+  a{color:inherit}
   svg{display:block}
-
-  /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
+  .kick{font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase}
 
-  /* ---------- TOP BAR ---------- */
-  .topbar{position:sticky;top:0;z-index:50;background:rgba(250,243,230,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
-  .topbar .row{display:flex;align-items:center;gap:14px;height:64px}
-  .topbar .logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--ink);text-decoration:none}
-  .topbar .mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#fff;
-    background:linear-gradient(135deg,var(--gold-2),var(--terra));font-size:20px;box-shadow:var(--shadow-sm)}
-  .topbar nav{margin-left:auto;display:flex;gap:6px}
-  .topbar nav a{text-decoration:none;color:var(--ink-2);font-weight:600;font-size:14px;padding:8px 13px;border-radius:10px;transition:.15s}
-  .topbar nav a:hover{background:var(--cream-2);color:var(--ink)}
-  .topbar .mini-cta{margin-left:6px;background:var(--wa);color:#fff;padding:9px 16px;border-radius:11px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:.15s}
-  .topbar .mini-cta:hover{background:var(--wa-dk)}
-  .topbar .mini-cta svg{width:16px;height:16px;fill:#fff}
-  @media(max-width:760px){.topbar nav{display:none}}
+  /* ---------- TOP STRIP / SUMARIO ---------- */
+  .strip{border-bottom:1px solid var(--rule);background:var(--paper)}
+  .strip .row{display:flex;align-items:center;gap:18px;height:52px;font-family:'Plus Jakarta Sans',sans-serif}
+  .strip .ed{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent)}
+  .strip nav{margin-left:auto;display:flex;gap:20px}
+  .strip nav a{font-size:12.5px;font-weight:700;letter-spacing:.5px;text-decoration:none;color:var(--ink-2);transition:.15s}
+  .strip nav a:hover{color:var(--accent)}
+  @media(max-width:820px){.strip nav{display:none}}
 
-  /* ---------- HERO ---------- */
-  .hero{position:relative;text-align:center;padding:60px 22px 46px;overflow:hidden}
-  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0}
-  .hero::before{width:340px;height:340px;background:radial-gradient(circle,var(--gold-2),transparent 70%);top:-120px;left:-80px}
-  .hero::after{width:300px;height:300px;background:radial-gradient(circle,#E9B98F,transparent 70%);top:-60px;right:-90px}
-  .hero > *{position:relative;z-index:1}
-  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
-    padding:7px 15px;border-radius:999px;font-size:13px;font-weight:700;color:var(--gold-deep);box-shadow:var(--shadow-sm)}
-  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px rgba(31,171,84,.18);animation:pulse 2s infinite}
-  @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(31,171,84,0)}}
-  .hero h1{font-size:clamp(44px,9vw,76px);margin-top:20px;color:var(--ink)}
-  .hero h1 .accent{font-style:italic;color:var(--gold-deep)}
-  .hero p.tag{max-width:560px;margin:20px auto 0;font-size:19px;color:var(--ink-soft)}
-  .hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:14px;font-weight:800;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s;cursor:pointer;border:none}
-  .btn-wa{background:var(--wa);color:#fff;box-shadow:var(--glow)}
-  .btn-wa:hover{transform:translateY(-2px);background:var(--wa-dk)}
-  .btn-wa svg{width:21px;height:21px;fill:#fff}
-  .btn-ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
-  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold)}
-  .btn-ghost svg{width:19px;height:19px;stroke:var(--gold-deep);fill:none;stroke-width:2}
+  /* ---------- MASTHEAD ---------- */
+  .masthead{text-align:center;padding:46px 28px 0}
+  .masthead .top-rule{height:1px;background:var(--ink);max-width:1024px;margin:0 auto 18px}
+  .masthead .meta{display:flex;justify-content:space-between;max-width:1024px;margin:0 auto;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft)}
+  .masthead h1{font-size:clamp(46px,12vw,128px);font-weight:600;letter-spacing:-2px;margin:14px 0 6px;line-height:.92}
+  .masthead h1 em{font-style:italic;font-weight:400}
+  .masthead .sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--accent)}
+  .masthead .dbl-rule{max-width:1024px;margin:20px auto 0}
+  .masthead .dbl-rule span{display:block;background:var(--ink)}
+  .masthead .dbl-rule span:first-child{height:3px;margin-bottom:3px}
+  .masthead .dbl-rule span:last-child{height:1px}
 
-  /* feature row */
-  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px}
-  .feature{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 16px;text-align:center}
-  .feature .ic{width:44px;height:44px;margin:0 auto 12px;border-radius:13px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--cream-2),#fff);border:1px solid var(--line)}
-  .feature .ic svg{width:22px;height:22px;stroke:var(--gold-deep);fill:none;stroke-width:1.8}
-  .feature b{display:block;font-size:14px;color:var(--ink);font-weight:800}
-  .feature span{font-size:12px;color:var(--ink-soft)}
-  @media(max-width:760px){.features{grid-template-columns:repeat(2,1fr)}}
+  /* ---------- HERO / ABERTURA ---------- */
+  .opener{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center;padding:48px 0 10px}
+  .opener .lead .kick{color:var(--accent);margin-bottom:18px}
+  .opener .lead h2{font-size:clamp(32px,5vw,52px);margin-bottom:20px}
+  .opener .lead h2 em{font-style:italic;color:var(--accent)}
+  .opener .standfirst{font-size:21px;line-height:1.6;color:var(--ink-2)}
+  .opener .standfirst::first-letter{font-family:'Fraunces',serif;font-weight:600;float:left;font-size:74px;line-height:.7;padding:8px 12px 0 0;color:var(--accent)}
+  .opener .figure{position:relative;aspect-ratio:4/5;background:linear-gradient(135deg,var(--paper-2),#fff);border:1px solid var(--rule);overflow:hidden}
+  .opener .figure img{width:100%;height:100%;object-fit:cover}
+  .opener .figure .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink-soft)}
+  .opener .figure .ph svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.4;opacity:.7}
+  .opener .figure .cap{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 12px}
+  .btn-wa{display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:var(--wa);color:#fff;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;padding:15px 26px;border-radius:2px;text-decoration:none;transition:.15s}
+  .btn-wa:hover{background:var(--wa-dk)}
+  .btn-wa svg{width:19px;height:19px;fill:#fff}
+  @media(max-width:820px){.opener{grid-template-columns:1fr;gap:30px;padding:34px 0 6px}.opener .figure{aspect-ratio:16/11;order:-1}}
 
-  /* ---------- SECTION HEAD ---------- */
-  section.menu{padding:50px 0 8px}
-  .sec-head{display:flex;align-items:center;gap:15px;margin-bottom:8px}
-  .sec-head .si{width:52px;height:52px;flex:0 0 auto;border-radius:15px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--gold-2),var(--terra));box-shadow:var(--glow)}
-  .sec-head .si svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8}
-  .sec-head h2{font-size:clamp(30px,6vw,42px);color:var(--ink)}
-  .sec-head .tagchip{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
-    color:var(--terra);background:#FBE7DC;padding:6px 12px;border-radius:999px;white-space:nowrap}
-  .sec-desc{color:var(--ink-soft);font-size:16px;margin:0 0 26px 67px}
-  @media(max-width:600px){.sec-desc{margin-left:0}.sec-head .tagchip{display:none}}
+  /* credenciais corridas */
+  .creds{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 0;margin-top:34px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .creds div{flex:1;min-width:150px;text-align:center;padding:18px 10px;border-right:1px solid var(--rule)}
+  .creds div:last-child{border-right:none}
+  .creds b{display:block;font-family:'Fraunces',serif;font-size:15px;font-weight:600}
+  .creds span{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft)}
 
-  /* ---------- CARDS ---------- */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-    box-shadow:var(--shadow-sm);display:flex;flex-direction:column;overflow:hidden;
-    transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
-  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  /* foto do produto */
-  .card .photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,var(--cream-2),#fff);border-bottom:1px solid var(--line)}
-  .card .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-  .card:hover .photo img{transform:scale(1.05)}
-  .card .photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-soft)}
-  .card .photo .ph svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.5;opacity:.7}
-  .card .photo .ph span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
-  .card .photo::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,var(--gold-2),var(--terra));opacity:0;transition:.2s}
-  .card:hover .photo::after{opacity:1}
-  .card-body{padding:22px;display:flex;flex-direction:column;flex-grow:1}
-  .card .toprow{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-  .card .cardic{width:46px;height:46px;flex:0 0 auto;border-radius:13px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--cream-2),#fff);border:1px solid var(--line)}
-  .card .cardic svg{width:24px;height:24px;stroke:var(--gold-deep);fill:none;stroke-width:1.7}
-  .badge{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--gold-deep);
-    background:var(--cream-2);padding:5px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:5px}
-  .badge.hot{background:var(--terra);color:#fff}
-  .badge svg{width:12px;height:12px;fill:currentColor}
-  .card h3{font-size:25px;color:var(--ink);margin-bottom:7px}
-  .card .desc{font-size:14px;color:var(--ink-soft);margin-bottom:9px;flex-grow:1}
-  .card .serves{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--gold-deep);margin-bottom:18px}
-  .card .serves svg{width:15px;height:15px;stroke:var(--gold-deep);fill:none;stroke-width:1.8}
+  /* ---------- SECAO EDITORIAL ---------- */
+  section.chapter{padding:58px 0 8px}
+  .chap-head{display:flex;align-items:flex-end;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:34px}
+  .chap-head .no{font-family:'Fraunces',serif;font-size:clamp(40px,8vw,72px);font-weight:500;line-height:.8;color:var(--accent)}
+  .chap-head .tt{flex:1}
+  .chap-head .tt .kick{color:var(--ink-soft);margin-bottom:6px;display:block}
+  .chap-head h2{font-size:clamp(30px,6vw,48px)}
+  .chap-head .aside{font-family:'Newsreader',serif;font-style:italic;font-size:16px;color:var(--ink-soft);max-width:260px;text-align:right}
+  @media(max-width:600px){.chap-head .aside{display:none}}
 
-  .sizes{display:flex;flex-direction:column;gap:10px}
-  .size-btn{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
-    border:1px solid var(--line);background:#fff;border-radius:var(--r-sm);padding:13px 15px;cursor:pointer;
-    font-family:inherit;font-size:15px;color:var(--ink);text-decoration:none;transition:.15s}
-  .size-btn:hover{border-color:var(--wa);background:#F2FBF5;transform:translateX(2px)}
-  .size-btn .left{display:flex;flex-direction:column;line-height:1.25}
-  .size-btn .sz{font-weight:800}
-  .size-btn .perkg{font-size:11px;font-weight:600;color:var(--ink-soft)}
-  .size-btn .right{display:flex;align-items:center;gap:9px}
-  .size-btn .pr{display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
-  .size-btn .pr .from{font-size:9.5px;font-weight:800;color:var(--ink-soft);text-transform:uppercase}
-  .size-btn .pr b{font-weight:800;color:var(--gold-deep);font-size:16px}
-  .size-btn .ic{width:30px;height:30px;flex:0 0 auto;border-radius:9px;background:var(--wa);display:grid;place-items:center;transition:.15s}
-  .size-btn .ic svg{width:16px;height:16px;fill:#fff}
-  .size-btn:hover .ic{background:var(--wa-dk);transform:scale(1.06)}
-  .value-tag{position:absolute;top:-9px;right:13px;font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
-    color:#fff;background:var(--terra);padding:3px 9px;border-radius:999px;box-shadow:var(--shadow-sm)}
+  /* lista de pecas */
+  .pieces{display:grid;gap:0}
+  .piece{display:grid;grid-template-columns:90px 150px 1fr;gap:26px;padding:28px 0;border-bottom:1px solid var(--rule)}
+  .piece:last-child{border-bottom:none}
+  .piece .pno{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--accent);padding-top:4px}
+  .piece .pphoto{aspect-ratio:1;background:linear-gradient(135deg,var(--paper-2),#fff);border:1px solid var(--rule);overflow:hidden;position:relative}
+  .piece .pphoto img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .piece:hover .pphoto img{transform:scale(1.05)}
+  .piece .pphoto .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-soft)}
+  .piece .pphoto .ph svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.4;opacity:.65}
+  .piece .pname{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .piece h3{font-size:30px;font-weight:600}
+  .piece .tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:2px}
+  .piece .pdesc{font-size:17px;color:var(--ink-2);margin:8px 0 6px;max-width:54ch}
+  .piece .pserves{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+  /* linhas de preco com leader pontilhado */
+  .lines{display:flex;flex-direction:column;gap:2px;max-width:460px}
+  .line{display:flex;align-items:baseline;gap:10px;text-decoration:none;padding:9px 0;border-top:1px dotted var(--rule-2);transition:.15s}
+  .line:first-child{border-top:none}
+  .line:hover{color:var(--accent)}
+  .line .lname{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px}
+  .line .lead{flex:1;border-bottom:1px dotted var(--rule-2);transform:translateY(-4px)}
+  .line .lfrom{font-family:'Plus Jakarta Sans',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft)}
+  .line .lprice{font-family:'Fraunces',serif;font-size:20px;font-weight:600}
+  .line .go{display:inline-flex;align-items:center;gap:5px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--wa-dk);opacity:0;transform:translateX(-4px);transition:.15s;white-space:nowrap}
+  .line:hover .go{opacity:1;transform:none}
+  .line .go svg{width:13px;height:13px;fill:var(--wa-dk)}
+  .lval{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:var(--ink-soft);margin-top:2px}
+  @media(max-width:700px){
+    .piece{grid-template-columns:1fr;gap:14px}
+    .piece .pno{display:none}
+    .piece .pphoto{aspect-ratio:16/10}
+    .piece h3{font-size:26px}
+    .line .go{opacity:1;transform:none}
+  }
 
-  /* ---------- FESTAS / EVENTOS ---------- */
-  #festas{border-radius:var(--r);padding:34px 20px 14px;margin-top:50px;
-    background:radial-gradient(120% 80% at 50% 0%, rgba(198,138,30,.08), transparent 60%)}
-  .events{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 26px}
-  .occasion{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;
-    background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:18px 10px;transition:.18s}
-  .occasion:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:var(--shadow-sm)}
-  .occasion .oic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--gold-2),var(--terra))}
-  .occasion .oic svg{width:25px;height:25px;stroke:#fff;fill:none;stroke-width:1.7}
-  .occasion b{font-size:13px;color:var(--ink);font-weight:800;text-align:center}
-  @media(max-width:760px){.events{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:420px){.events{grid-template-columns:repeat(2,1fr)}}
-  .grid.two{grid-template-columns:repeat(2,minmax(280px,1fr))}
-  @media(max-width:600px){.grid.two{grid-template-columns:1fr}}
-  .price-line{font-size:13px;font-weight:700;color:var(--gold-deep);margin-bottom:16px}
-  .card-cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:auto;
-    background:var(--wa);color:#fff;font-weight:800;font-size:15px;padding:14px;border-radius:var(--r-sm);
-    text-decoration:none;transition:.15s}
-  .card-cta:hover{background:var(--wa-dk)}
-  .card-cta svg{width:19px;height:19px;fill:#fff}
+  /* bandeirinhas juninas (versao fina editorial) */
+  .bunting{display:flex;justify-content:center;flex-wrap:wrap;line-height:0;margin:6px 0 24px}
+  .bunting i{width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:16px solid}
+  .bunting i:nth-child(5n+1){border-top-color:#C0392B}
+  .bunting i:nth-child(5n+2){border-top-color:#D9A227}
+  .bunting i:nth-child(5n+3){border-top-color:#2E8B57}
+  .bunting i:nth-child(5n+4){border-top-color:#2F6FB0}
+  .bunting i:nth-child(5n+5){border-top-color:var(--accent)}
+
+  /* ---------- FESTAS ---------- */
+  .occasions{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:34px}
+  .occasions a{text-decoration:none;text-align:center;padding:24px 12px;border-right:1px solid var(--rule);transition:.15s}
+  .occasions a:last-child{border-right:none}
+  .occasions a:hover{background:var(--paper-2)}
+  .occasions .on{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--accent);display:block;margin-bottom:6px}
+  .occasions .ot{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--ink)}
+  @media(max-width:760px){.occasions{grid-template-columns:repeat(2,1fr)}.occasions a:nth-child(2n){border-right:none}}
+  .festas-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  @media(max-width:700px){.festas-grid{grid-template-columns:1fr}}
+  .offer{border:1px solid var(--rule);background:#fff8ec}
+  .offer .oimg{aspect-ratio:16/10;background:linear-gradient(135deg,var(--paper-2),#fff);position:relative;border-bottom:1px solid var(--rule)}
+  .offer .oimg .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-soft)}
+  .offer .oimg .ph svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.4;opacity:.65}
+  .offer .obody{padding:24px}
+  .offer h3{font-size:28px;margin-bottom:8px}
+  .offer .tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:inline-block;margin-bottom:10px}
+  .offer p{font-size:16px;color:var(--ink-2);margin-bottom:8px}
+  .offer .price-line{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:16px}
+  .offer .btn-wa{margin-top:0;width:100%;justify-content:center}
 
   /* ---------- GALERIA ---------- */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
-  .gallery .shot{position:relative;aspect-ratio:1;border-radius:var(--r-sm);overflow:hidden;
-    background:linear-gradient(135deg,var(--cream-2),#fff);border:1px solid var(--line)}
-  .gallery .shot img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
-  .gallery .shot:hover img{transform:scale(1.06)}
-  .gallery .shot .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-soft)}
-  .gallery .shot .ph svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.5;opacity:.7}
-  @media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .gal .shot{aspect-ratio:1;background:linear-gradient(135deg,var(--paper-2),#fff);border:1px solid var(--rule);overflow:hidden;position:relative}
+  .gal .shot img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .gal .shot:hover img{transform:scale(1.06)}
+  .gal .shot .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-soft)}
+  .gal .shot .ph svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.4;opacity:.6}
+  @media(max-width:600px){.gal{grid-template-columns:repeat(2,1fr)}}
 
-  /* ---------- DECORAÇÃO JUNINA ---------- */
-  #juninos{position:relative;border-radius:var(--r);padding:30px 18px 8px;
-    background:
-      radial-gradient(120% 80% at 50% 0%, rgba(194,86,42,.07), transparent 60%),
-      linear-gradient(180deg, rgba(224,169,58,.06), transparent 40%)}
-  .bunting{display:flex;justify-content:center;flex-wrap:wrap;gap:0;margin:0 0 22px;line-height:0}
-  .bunting i{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;
-    border-top:19px solid;display:inline-block;margin:0;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08))}
-  .bunting i::before{content:"";position:relative;display:block;top:-21px;left:-13px;width:26px;height:2px;background:#A07A3C}
-  .bunting i:nth-child(5n+1){border-top-color:#E0413A}
-  .bunting i:nth-child(5n+2){border-top-color:#E0A93A}
-  .bunting i:nth-child(5n+3){border-top-color:#3FA86A}
-  .bunting i:nth-child(5n+4){border-top-color:#3F7FD6}
-  .bunting i:nth-child(5n+5){border-top-color:#C2562A}
-  .festa-note{text-align:center;font-size:12.5px;font-weight:700;color:var(--terra);
-    letter-spacing:.5px;margin:-8px 0 18px;display:flex;align-items:center;justify-content:center;gap:7px}
-  .festa-note svg{width:16px;height:16px;stroke:var(--terra);fill:none;stroke-width:2}
+  /* ---------- ENSAIO / HISTORIA ---------- */
+  .essay{padding:64px 0 8px;text-align:center}
+  .essay .kick{color:var(--accent);margin-bottom:18px}
+  .essay blockquote{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(26px,4.5vw,40px);line-height:1.3;max-width:760px;margin:0 auto}
+  .essay .body{max-width:600px;margin:26px auto 0;font-size:18px;color:var(--ink-2)}
+  .essay .quote{max-width:620px;margin:38px auto 0;padding-top:24px;border-top:1px solid var(--rule)}
+  .essay .quote .stars{color:var(--accent);letter-spacing:4px;font-size:14px}
+  .essay .quote p{font-family:'Fraunces',serif;font-style:italic;font-size:20px;margin-top:10px}
+  .essay .quote .who{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:10px}
 
-  /* ---------- STORY / PROOF ---------- */
-  .band{margin:54px 0 8px;border-radius:var(--r);background:linear-gradient(160deg,var(--dark),#3A2A18);
-    color:#F3E7D2;padding:46px 32px;text-align:center;position:relative;overflow:hidden}
-  .band::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;
-    background:radial-gradient(circle,var(--gold),transparent 70%);opacity:.22;top:-100px;right:-60px;filter:blur(20px)}
-  .band > *{position:relative;z-index:1}
-  .band .pill{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:var(--gold-2)}
-  .band h2{font-size:clamp(28px,6vw,40px);color:#fff;margin:16px auto 12px;max-width:640px}
-  .band p{max-width:600px;margin:0 auto;color:#D8C7AC;font-size:16px}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
-  .stats div{padding:22px 8px;border-right:1px solid rgba(255,255,255,.12)}
-  .stats div:last-child{border-right:none}
-  .stats b{display:block;font-family:'Fraunces',serif;font-size:34px;color:var(--gold-2);line-height:1}
-  .stats span{font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#C9B79A}
+  /* ---------- COLOFAO / CTA FINAL ---------- */
+  .colophon{background:var(--ink);color:var(--paper);margin-top:60px;text-align:center;padding:60px 28px}
+  .colophon .kick{color:var(--gold);margin-bottom:16px}
+  .colophon h2{font-size:clamp(30px,6vw,52px);color:#fff;margin-bottom:14px}
+  .colophon h2 em{font-style:italic}
+  .colophon p{color:#C9B79A;max-width:440px;margin:0 auto 26px;font-size:17px}
+  .colophon .links{margin-top:34px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-family:'Plus Jakarta Sans',sans-serif}
+  .colophon .links a{color:#E6D6BB;text-decoration:none;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+  .colophon .links a:hover{color:var(--gold)}
+  .colophon .links svg{width:17px;height:17px;fill:currentColor}
+  .colophon small{display:block;color:#8C7A60;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;letter-spacing:.5px;margin-top:24px}
 
-  /* testimonial */
-  .quote{margin:34px auto 0;max-width:620px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-    border-radius:var(--r-sm);padding:26px}
-  .quote .stars{color:var(--gold-2);letter-spacing:3px;font-size:15px;margin-bottom:12px}
-  .quote p{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:#F3E7D2;line-height:1.5}
-  .quote .who{margin-top:12px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#B7A485}
-
-  /* notice */
-  .notice{display:flex;align-items:center;gap:15px;justify-content:flex-start;text-align:left;margin:30px auto 0;max-width:600px;
-    background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 22px}
-  .notice .nic{width:46px;height:46px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:var(--cream-2)}
-  .notice .nic svg{width:24px;height:24px;stroke:var(--gold-deep);fill:none;stroke-width:1.8}
-  .notice p{font-size:14px;color:var(--ink-soft)}
-  .notice b{color:var(--ink)}
-
-  /* final CTA */
-  .final{text-align:center;padding:56px 22px 40px}
-  .final h2{font-size:clamp(30px,6vw,44px);margin-bottom:12px}
-  .final p{color:var(--ink-soft);font-size:17px;max-width:480px;margin:0 auto 26px}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--dark);color:#C9B79A;text-align:center;padding:40px 22px}
-  footer .logo{display:inline-flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:18px}
-  footer .logo .mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--gold-2),var(--terra));font-size:21px}
-  footer .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
-  footer .links a{color:#E6D6BB;text-decoration:none;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:.15s}
-  footer .links a:hover{color:var(--gold-2)}
-  footer .links svg{width:18px;height:18px;fill:currentColor}
-  footer small{display:block;color:#8C7A60;font-size:12.5px;margin-top:8px}
-
-  /* ---------- MOBILE-FIRST (maioria acessa pelo celular) ---------- */
-  @media(max-width:600px){
-    .wrap{padding:0 16px}
-    .hero{padding:40px 16px 36px}
-    .hero p.tag{font-size:17px}
-    .ctas .btn{width:100%;justify-content:center}
-    section.menu{padding:38px 0 6px}
-    .grid{grid-template-columns:1fr;gap:16px}
-    .card .photo{aspect-ratio:16/10}
-    .size-btn{padding:15px 16px}        /* alvo de toque maior */
-    .size-btn .ic{width:34px;height:34px}
-    .band{padding:36px 20px;margin:40px 0 8px}
-    .stats b{font-size:28px}
-    .notice{flex-direction:row;padding:18px}
-    .final{padding:42px 16px 32px}
-  }
-
-  /* ---------- STICKY MOBILE BAR ---------- */
-  .stickybar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;
-    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-    background:rgba(250,243,230,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-  .stickybar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;
-    font-weight:800;font-size:16px;padding:15px;border-radius:13px;text-decoration:none;box-shadow:var(--glow)}
-  .stickybar a svg{width:20px;height:20px;fill:#fff}
-  @media(min-width:760px){body{padding-bottom:0}.stickybar{display:none}}
+  /* ---------- STICKY MOBILE ---------- */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;
+    padding:11px 16px calc(11px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--rule-2)}
+  .sticky a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;padding:14px;text-decoration:none}
+  .sticky a svg{width:19px;height:19px;fill:#fff}
+  @media(min-width:820px){body{padding-bottom:0}.sticky{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ICON DEFS -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.413c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></symbol>
-  <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8M4 16s1.5-2 4-2 4 2 4 2 1.5-2 4-2 4 2 4 2M2 21h20M7 8v2M12 8v2M17 8v2M7 5a1 1 0 1 0 .001-2A1 1 0 0 0 7 5zM12 5a1 1 0 1 0 .001-2A1 1 0 0 0 12 5zM17 5a1 1 0 1 0 .001-2A1 1 0 0 0 17 5z"/></symbol>
-  <symbol id="i-corn" viewBox="0 0 24 24"><path d="M12 2c4 0 6 4 6 9s-3 11-6 11-6-6-6-11 2-9 6-9zM12 4v18M9 8l3-1.5M15 8l-3-1.5M9 12l3-1.5M15 12l-3-1.5M9 16l3-1.5M15 16l-3-1.5"/></symbol>
-  <symbol id="i-peanut" viewBox="0 0 24 24"><path d="M12 2c-2.5 0-4.5 2-4.5 4.5 0 1.5.7 2.8 1.7 3.6-1 .8-1.7 2.1-1.7 3.6C7.5 18 9.5 22 12 22s4.5-4 4.5-8.3c0-1.5-.7-2.8-1.7-3.6 1-.8 1.7-2.1 1.7-3.6C16.5 4 14.5 2 12 2zM9 6.5h6M9 13.5h6"/></symbol>
-  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5zM19 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></symbol>
-  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 8 8h2a8 8 0 0 0 8-8v-1a2 2 0 0 0-4 0"/></symbol>
-  <symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 .5-2S6 11 6 14a6 6 0 0 0 12 0c0-5-6-12-6-12z"/></symbol>
-  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .5-5.5 4.5 1.5 7L12 17l-6 3.5 1.5-7L2 9l7-.5z"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-party" viewBox="0 0 24 24"><path d="M2 22l5-14 9 9-14 5zM14 8l1.5-3M18 12l3-1.5M15 4l.01.01M20 6l.01.01M21 10l.01.01"/></symbol>
-  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18M12 8v13M12 8S10 3 7.5 4 9 8 12 8zM12 8s2-5 4.5-4S15 8 12 8z"/></symbol>
-  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1.3 3 2.2 6 2.2s6-.9 6-2.2v-5M22 10v5"/></symbol>
-  <symbol id="i-baby" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M9 7.5c1.5 1.2 4.5 1.2 6 0M6 21v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/></symbol>
-  <symbol id="i-rings" viewBox="0 0 24 24"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M9 9l1.2-3h3.6L15 9"/></symbol>
-  <symbol id="i-mini" viewBox="0 0 24 24"><path d="M6 11h12l-1.4 9H7.4zM6.5 11a3.5 3.5 0 0 1 .4-6.4 4 4 0 0 1 10.6.6 3 3 0 0 1-.5 5.8M12 3.5V2"/></symbol>
-  <symbol id="i-tier" viewBox="0 0 24 24"><path d="M9 7V5M12 7V4M15 7V5M5 11h14v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zM7 16h10v3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2zM3 21h18"/></symbol>
   <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 7.84A4.16 4.16 0 1 0 12 16.16 4.16 4.16 0 0 0 12 7.84zm0 6.86A2.7 2.7 0 1 1 12 9.3a2.7 2.7 0 0 1 0 5.4zm5.3-7.03a.97.97 0 1 1-1.94 0 .97.97 0 0 1 1.94 0z"/></symbol>
 </defs></svg>
 
-<div class="topbar">
+<div class="strip">
   <div class="wrap row">
-    <a class="logo" href="#"><span class="mark">R</span> Retalho de Açúcar</a>
+    <span class="ed">Edição Bolo de Rolo · Nº 01</span>
     <nav>
       <a href="#tradicionais">Tradicionais</a>
       <a href="#juninos">Juninos</a>
       <a href="#gourmet">Gourmet</a>
       <a href="#festas">Festas</a>
+      <a href="#galeria">Galeria</a>
     </nav>
-    <a class="mini-cta" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Pedir</a>
   </div>
 </div>
 
-<header class="hero">
-  <span class="pill"><span class="dot"></span>Fornadas limitadas · encomende sua data</span>
-  <h1>O bolo de rolo<br>que vira <span class="accent">memória</span>.</h1>
-  <p class="tag">Enrolado à mão, camada sobre camada, massa fina, recheio generoso e o cuidado de quem faz com afeto.</p>
-  <div class="ctas">
-    <a class="btn btn-wa" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Encomendar no WhatsApp</a>
-    <a class="btn btn-ghost" href="#tradicionais"><svg><use href="#i-arrow"/></svg>Ver o cardápio</a>
-  </div>
-
-  <div class="features wrap reveal">
-    <div class="feature"><div class="ic"><svg><use href="#i-hand"/></svg></div><b>Feito à mão</b><span>camada por camada</span></div>
-    <div class="feature"><div class="ic"><svg><use href="#i-clock"/></svg></div><b>Fresco na hora</b><span>assado sob encomenda</span></div>
-    <div class="feature"><div class="ic"><svg><use href="#i-leaf"/></svg></div><b>Sem conservante</b><span>ingredientes de verdade</span></div>
-    <div class="feature"><div class="ic"><svg><use href="#i-star"/></svg></div><b>Nota 5,0</b><span>+500 clientes</span></div>
-  </div>
-</header>
+<div class="masthead">
+  <div class="top-rule"></div>
+  <div class="meta"><span>Maceió · Alagoas</span><span>Feito à mão</span></div>
+  <h1>Retalho <em>de</em> Açúcar</h1>
+  <div class="sub">Bolo de Rolo Artesanal</div>
+  <div class="dbl-rule"><span></span><span></span></div>
+</div>
 
 <main class="wrap">
 
-  <section class="menu reveal" id="tradicionais">
-    <div class="sec-head">
-      <span class="si"><svg><use href="#i-cake"/></svg></span>
-      <h2>Os Tradicionais</h2>
-      <span class="tagchip">os clássicos</span>
+  <!-- ABERTURA -->
+  <section class="opener">
+    <div class="lead reveal">
+      <span class="kick">A reportagem de capa</span>
+      <h2>O bolo que se enrola em <em>memória</em>.</h2>
+      <p class="standfirst">Camada sobre camada, massa finíssima e recheio generoso. Cada rolo é feito à mão, em pequenas fornadas e sob encomenda, do jeito que a tradição pernambucana ensinou e o afeto aperfeiçoou.</p>
+      <a class="btn-wa" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Encomendar no WhatsApp</a>
     </div>
-    <p class="sec-desc">O sabor de casa que nunca sai de moda. Onde tudo começou.</p>
-    <div class="grid" data-cat="tradicionais"></div>
+    <figure class="figure reveal">
+      <div class="ph"><svg><use href="#i-img"/></svg></div>
+      <figcaption class="cap">Foto de capa</figcaption>
+    </figure>
   </section>
 
-  <section class="menu reveal" id="juninos">
+  <div class="creds reveal">
+    <div><b>+500</b><span>bolos entregues</span></div>
+    <div><b>Sem conservantes</b><span>ingredientes de verdade</span></div>
+    <div><b>Nota 5,0</b><span>avaliação dos clientes</span></div>
+  </div>
+
+  <!-- TRADICIONAIS -->
+  <section class="chapter reveal" id="tradicionais">
+    <div class="chap-head">
+      <span class="no">01</span>
+      <div class="tt"><span class="kick">Os clássicos</span><h2>Tradicionais</h2></div>
+      <p class="aside">O sabor de casa que nunca sai de moda.</p>
+    </div>
+    <div class="pieces" data-cat="tradicionais"></div>
+  </section>
+
+  <!-- JUNINOS -->
+  <section class="chapter reveal" id="juninos">
     <div class="bunting" aria-hidden="true"></div>
-    <div class="sec-head">
-      <span class="si"><svg><use href="#i-corn"/></svg></span>
-      <h2>Os Juninos</h2>
-      <span class="tagchip">edição de época</span>
+    <div class="chap-head">
+      <span class="no">02</span>
+      <div class="tt"><span class="kick">Edição de época</span><h2>Juninos</h2></div>
+      <p class="aside">O São João em forma de rolo. Por tempo limitado.</p>
     </div>
-    <p class="sec-desc">O melhor do São João em forma de bolo de rolo. Por tempo limitado.</p>
-    <div class="festa-note"><svg><use href="#i-fire"/></svg>É forró, é fogueira, é bolo de rolo, só nesta temporada</div>
-    <div class="grid" data-cat="juninos"></div>
+    <div class="pieces" data-cat="juninos"></div>
   </section>
 
-  <section class="menu reveal" id="gourmet">
-    <div class="sec-head">
-      <span class="si"><svg><use href="#i-sparkle"/></svg></span>
-      <h2>Os Gourmet</h2>
-      <span class="tagchip">linha premium</span>
+  <!-- GOURMET -->
+  <section class="chapter reveal" id="gourmet">
+    <div class="chap-head">
+      <span class="no">03</span>
+      <div class="tt"><span class="kick">Linha premium</span><h2>Gourmet</h2></div>
+      <p class="aside">Recheios premium em camadas generosas.</p>
     </div>
-    <p class="sec-desc">Recheios premium em camadas generosas. Quer outro sabor? A gente cria pra você.</p>
-    <div class="grid" data-cat="gourmet"></div>
+    <div class="pieces" data-cat="gourmet"></div>
   </section>
 
-  <section class="menu reveal" id="festas">
-    <div class="sec-head">
-      <span class="si"><svg><use href="#i-party"/></svg></span>
-      <h2>Encomende para sua festa</h2>
-      <span class="tagchip">sob medida</span>
+  <!-- FESTAS -->
+  <section class="chapter reveal" id="festas">
+    <div class="chap-head">
+      <span class="no">04</span>
+      <div class="tt"><span class="kick">Sob medida</span><h2>Para sua festa</h2></div>
+      <p class="aside">Encomendas especiais para grandes momentos.</p>
     </div>
-    <p class="sec-desc">Aniversário, batizado, chá de bebê, formatura, casamento ou evento da empresa, a gente monta do seu jeito. Toque na ocasião e fale com a gente.</p>
-
-    <div class="events">
-      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um *aniversário* 🎂"><span class="oic"><svg><use href="#i-gift"/></svg></span><b>Aniversários</b></a>
-      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um *batizado* 🤍"><span class="oic"><svg><use href="#i-rings"/></svg></span><b>Batizados</b></a>
-      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um *chá de bebê* 🍼"><span class="oic"><svg><use href="#i-baby"/></svg></span><b>Chá de bebê</b></a>
-      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para uma *formatura* 🎓"><span class="oic"><svg><use href="#i-grad"/></svg></span><b>Formaturas</b></a>
-      <a class="occasion" data-wa="Olá! Quero um orçamento de bolo de rolo para um *casamento / evento* 🥂"><span class="oic"><svg><use href="#i-party"/></svg></span><b>Casamentos</b></a>
+    <div class="occasions">
+      <a data-wa="Olá! Quero um orçamento de bolo de rolo para um *aniversário* 🎂"><span class="on">para</span><span class="ot">Aniversários</span></a>
+      <a data-wa="Olá! Quero um orçamento de bolo de rolo para um *batizado* 🤍"><span class="on">para</span><span class="ot">Batizados</span></a>
+      <a data-wa="Olá! Quero um orçamento de bolo de rolo para um *chá de bebê* 🍼"><span class="on">para</span><span class="ot">Chá de bebê</span></a>
+      <a data-wa="Olá! Quero um orçamento de bolo de rolo para uma *formatura* 🎓"><span class="on">para</span><span class="ot">Formaturas</span></a>
+      <a data-wa="Olá! Quero um orçamento de bolo de rolo para um *casamento / evento* 🥂"><span class="on">para</span><span class="ot">Casamentos</span></a>
     </div>
-
-    <div class="grid two">
-      <article class="card">
-        <div class="photo"><div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div></div>
-        <div class="card-body">
-          <div class="toprow">
-            <span class="cardic"><svg><use href="#i-mini"/></svg></span>
-            <span class="badge hot"><svg><use href="#i-fire"/></svg>queridinho de festa</span>
-          </div>
+    <div class="festas-grid">
+      <article class="offer">
+        <div class="oimg"><div class="ph"><svg><use href="#i-img"/></svg></div></div>
+        <div class="obody">
+          <span class="tag">Queridinho de festa</span>
           <h3>Minis de Rolo</h3>
-          <p class="desc">Versões individuais, do tamanho de uma porção. Perfeitos para mesa de doces, lembrancinha ou bem-casado. Vários sabores no mesmo pedido.</p>
+          <p>Versões individuais, do tamanho de uma porção. Perfeitos para mesa de doces, lembrancinha ou bem-casado. Vários sabores no mesmo pedido.</p>
           <p class="price-line">Orçamento por quantidade · a partir de 20 unidades</p>
-          <a class="card-cta" data-wa="Olá! Quero um orçamento dos *Minis de Rolo* para um evento. Pode me ajudar? 🧡"><svg><use href="#i-wa"/></svg>Pedir orçamento</a>
+          <a class="btn-wa" data-wa="Olá! Quero um orçamento dos *Minis de Rolo* para um evento. Pode me ajudar? 🧡"><svg><use href="#i-wa"/></svg>Pedir orçamento</a>
         </div>
       </article>
-
-      <article class="card">
-        <div class="photo"><div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div></div>
-        <div class="card-body">
-          <div class="toprow">
-            <span class="cardic"><svg><use href="#i-tier"/></svg></span>
-            <span class="badge">centro de mesa</span>
-          </div>
+      <article class="offer">
+        <div class="oimg"><div class="ph"><svg><use href="#i-img"/></svg></div></div>
+        <div class="obody">
+          <span class="tag">Centro de mesa</span>
           <h3>Bolos de Festa</h3>
-          <p class="desc">O bolo de rolo em formato de festa: maior, decorado e no tema do seu evento. Sabor à sua escolha, do clássico ao gourmet.</p>
+          <p>O bolo de rolo em formato de festa: maior, decorado e no tema do seu evento. Sabor à sua escolha, do clássico ao gourmet.</p>
           <p class="price-line">Tamanho e decoração sob medida · orçamento personalizado</p>
-          <a class="card-cta" data-wa="Olá! Quero um orçamento de *Bolo de Festa* (bolo de rolo decorado). Pode me ajudar? 🧡"><svg><use href="#i-wa"/></svg>Pedir orçamento</a>
+          <a class="btn-wa" data-wa="Olá! Quero um orçamento de *Bolo de Festa* (bolo de rolo decorado). Pode me ajudar? 🧡"><svg><use href="#i-wa"/></svg>Pedir orçamento</a>
         </div>
       </article>
     </div>
   </section>
 
-  <section class="menu reveal" id="galeria">
-    <div class="sec-head">
-      <span class="si"><svg><use href="#i-img"/></svg></span>
-      <h2>Da nossa cozinha</h2>
-      <span class="tagchip">feito por nós</span>
+  <!-- GALERIA -->
+  <section class="chapter reveal" id="galeria">
+    <div class="chap-head">
+      <span class="no">05</span>
+      <div class="tt"><span class="kick">Feito por nós</span><h2>Da cozinha</h2></div>
+      <p class="aside">Cada fatia conta a história de quem faz.</p>
     </div>
-    <p class="sec-desc">Cada fatia conta a história de quem faz com carinho. Troque pelas suas fotos reais.</p>
-    <div class="gallery" id="galeria-grid"></div>
+    <div class="gal" id="galeria-grid"></div>
   </section>
 
-  <div class="band reveal">
-    <span class="pill"><svg style="width:14px;height:14px;stroke:var(--gold-2);fill:none;stroke-width:2"><use href="#i-leaf"/></svg>Nossa história</span>
-    <h2>Feito de retalho, cheio de afeto</h2>
-    <p>Nascido da tradição pernambucana do bolo de rolo. Pequenas fornadas, sempre por encomenda, porque o melhor bolo é o feito na medida certa, fresco, no tempo de quem espera com carinho.</p>
-    <div class="stats">
-      <div><b>+500</b><span>bolos entregues</span></div>
-      <div><b>100%</b><span>feito na hora</span></div>
-      <div><b>5,0</b><span>nota dos clientes</span></div>
-    </div>
+  <!-- ENSAIO -->
+  <section class="essay reveal">
+    <span class="kick">O ensaio</span>
+    <blockquote>"Feito de retalho, cheio de afeto. O melhor bolo é o feito na medida certa, no tempo de quem espera com carinho."</blockquote>
+    <p class="body">Nascido da tradição pernambucana do bolo de rolo, o Retalho de Açúcar trabalha em pequenas fornadas, sempre por encomenda. Nada de prateleira: tudo sai fresco do forno para a sua mesa.</p>
     <div class="quote">
       <div class="stars">★★★★★</div>
       <p>"O melhor bolo de rolo que já comi. Massa fininha de verdade, recheio na medida. Virou presença obrigatória nas minhas festas."</p>
       <div class="who">Cliente · Maceió</div>
     </div>
-  </div>
-
-  <div class="notice reveal">
-    <span class="nic"><svg><use href="#i-clock"/></svg></span>
-    <p><b>Encomendas com antecedência.</b> Cada bolo é feito sob pedido, fresquinho pra você. Fornadas limitadas por dia, garanta a sua data.</p>
-  </div>
-
-  <section class="final reveal">
-    <h2>Bateu a vontade?</h2>
-    <p>Escolhe o sabor, manda mensagem e a gente cuida do resto.</p>
-    <a class="btn btn-wa" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Encomendar agora</a>
   </section>
 
 </main>
 
-<footer>
-  <div class="logo"><span class="mark">R</span> Retalho de Açúcar</div>
+<!-- COLOFAO -->
+<section class="colophon reveal">
+  <span class="kick">Encerramento</span>
+  <h2>Bateu a <em>vontade</em>?</h2>
+  <p>Escolhe o sabor, manda mensagem e a gente cuida do resto. Fornadas limitadas por dia.</p>
+  <a class="btn-wa" data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Encomendar agora</a>
   <div class="links">
     <a href="https://www.instagram.com/retalhodeacucar/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@retalhodeacucar</a>
     <a data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>(82) 99634-2899</a>
   </div>
-  <small>Bolos de Rolo Artesanais · Maceió</small>
-  <small>© Retalho de Açúcar. Todos os direitos reservados</small>
-</footer>
+  <small>Retalho de Açúcar · Bolos de Rolo Artesanais · Maceió</small>
+</section>
 
-<div class="stickybar">
+<div class="sticky">
   <a data-wa="Olá! Vim pelo cardápio e quero fazer um pedido 🧡"><svg><use href="#i-wa"/></svg>Encomendar no WhatsApp</a>
 </div>
 
 <script>
   // ============ PRODUTOS: edite precos/sabores aqui ============
-  // from:true => mostra "a partir de".  icon = id do simbolo SVG.
-  // FOTO: adicione img:"fotos/goiabada.jpg" no produto. Sem img => placeholder "foto em breve".
+  // from:true => mostra "a partir de".  img:"fotos/arquivo.jpg" (vazio = placeholder).
   const MENU = {
     tradicionais:[
-      {nome:"Goiabada",icon:"i-cake",hot:true,img:"",desc:"Goiabada cascão derretida entre camadas finíssimas. A receita que começou tudo, doce na medida, nostálgico.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:65},{g:"600 g",preco:35}]},
-      {nome:"Doce de Leite",icon:"i-cake",desc:"Doce de leite cremoso e amanteigado, enrolado camada por camada. Aveludado e encorpado.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]},
-      {nome:"Café",icon:"i-cake",desc:"O amargor delicado do café equilibrando o doce. Pro paladar adulto, perfeito com espresso.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]}
+      {nome:"Goiabada",hot:true,img:"",desc:"Goiabada cascão derretida entre camadas finíssimas. A receita que começou tudo, doce na medida, nostálgico.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:65},{g:"600 g",preco:35}]},
+      {nome:"Doce de Leite",img:"",desc:"Doce de leite cremoso e amanteigado, enrolado camada por camada. Aveludado e encorpado.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]},
+      {nome:"Café",img:"",desc:"O amargor delicado do café equilibrando o doce. Para o paladar adulto, perfeito com espresso.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:70},{g:"600 g",preco:40}]}
     ],
     juninos:[
-      {nome:"Milho",icon:"i-corn",desc:"O São João em forma de rolo. Sabor que só aparece nesta época.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
-      {nome:"Macaxeira",icon:"i-corn",desc:"Aconchego de roça, macio e perfumado. Edição junina.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
-      {nome:"Paçoca",icon:"i-corn",desc:"Amendoim em forma de afeto. Quem prova, encomenda de novo.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
-      {nome:"Cocada Cremosa",icon:"i-corn",desc:"Coco cremoso e dourado, doçura de festa.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
-      {nome:"Pé de Moleque",icon:"i-peanut",desc:"Amendoim torrado e aquele caramelo da infância, enrolado. Crocância e memória afetiva na mesma fatia.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:80},{g:"600 g",preco:45}]}
+      {nome:"Milho",img:"",desc:"O São João em forma de rolo. Sabor que só aparece nesta época.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Macaxeira",img:"",desc:"Aconchego de roça, macio e perfumado. Edição junina.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Paçoca",img:"",desc:"Amendoim em forma de afeto. Quem prova, encomenda de novo.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Cocada Cremosa",img:"",desc:"Coco cremoso e dourado, doçura de festa.",from:true,sizes:[{g:"~1,2 kg",preco:75},{g:"~600 g",preco:40}]},
+      {nome:"Pé de Moleque",img:"",desc:"Amendoim torrado e aquele caramelo da infância, enrolado. Crocância e memória afetiva na mesma fatia.",serves:"serve 10 a 12 / 5 a 6",sizes:[{g:"1,2 kg",preco:80},{g:"600 g",preco:45}]}
     ],
     gourmet:[
-      {nome:"Chocolate",icon:"i-sparkle",desc:"Pura indulgência, chocolate em camadas generosas.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
-      {nome:"Ninho com Nutella",icon:"i-sparkle",hot:true,desc:"O queridinho da linha. Cremosidade do Ninho com a Nutella.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
-      {nome:"Oreo",icon:"i-sparkle",desc:"Crocante e cremoso, pra quem ama biscoito.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
-      {nome:"Outros sabores",icon:"i-sparkle",desc:"Pra presentear, comemorar ou se dar um luxo. Chama que a gente cria.",from:true,sizes:[{g:"sob encomenda",preco:85}]}
+      {nome:"Chocolate",img:"",desc:"Pura indulgência, chocolate em camadas generosas.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Ninho com Nutella",hot:true,img:"",desc:"O queridinho da linha. Cremosidade do Ninho com a Nutella.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Oreo",img:"",desc:"Crocante e cremoso, para quem ama biscoito.",from:true,sizes:[{g:"~1,2 kg",preco:85}]},
+      {nome:"Outros sabores",img:"",desc:"Para presentear, comemorar ou se dar um luxo. Chama que a gente cria.",from:true,sizes:[{g:"sob encomenda",preco:85}]}
     ]
   };
 
   const PHONE = document.querySelector('meta[name="whatsapp"]').content.replace(/\D/g,'');
   const brl   = n => "R$ " + Number(n).toFixed(2).replace(".",",");
   const waURL = m => `https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`;
-  const waIcon = `<span class="ic"><svg><use href="#i-wa"/></svg></span>`;
+  const goIcon = `<span class="go"><svg><use href="#i-wa"/></svg>pedir</span>`;
 
-  // preco por kg (ancoragem de valor)
   const perKg = s => {
+    if(typeof s.preco!=="number") return null;
     const m = String(s.g).match(/([\d.,]+)\s*kg/i) || String(s.g).match(/(\d+)\s*g/i);
-    if(!m || typeof s.preco!=="number") return null;
-    let grams = /kg/i.test(s.g) ? parseFloat(m[1].replace(",","."))*1000 : parseFloat(m[1]);
-    if(!grams) return null;
-    return s.preco/(grams/1000);
+    if(!m) return null;
+    const grams = /kg/i.test(s.g) ? parseFloat(m[1].replace(",","."))*1000 : parseFloat(m[1]);
+    return grams ? s.preco/(grams/1000) : null;
   };
 
-  document.querySelectorAll('.grid').forEach(grid=>{
-    const list = MENU[grid.dataset.cat] || [];
-    grid.innerHTML = list.map(p=>{
-      // melhor valor = menor preco por kg entre os tamanhos numericos
-      let best=-1,bestVal=Infinity;
-      p.sizes.forEach((s,i)=>{const v=perKg(s); if(v!==null && v<bestVal){bestVal=v;best=i}});
-      const showValue = p.sizes.length>1;
-
-      const sizes = p.sizes.map((s,i)=>{
+  document.querySelectorAll('.pieces').forEach(box=>{
+    const list = MENU[box.dataset.cat] || [];
+    box.innerHTML = list.map((p,idx)=>{
+      const lines = p.sizes.map(s=>{
         const sob = typeof s.preco!=="number";
         const precoTxt = sob ? s.preco : brl(s.preco);
-        const fromTag  = (p.from && !sob) ? `<span class="from">a partir de</span>` : "";
+        const fromTag  = (p.from && !sob) ? `<span class="lfrom">a partir de&nbsp;</span>` : "";
         const kg = perKg(s);
-        const perTxt = kg ? `<span class="perkg">${brl(kg)}/kg</span>` : "";
-        const valTag = (showValue && i===best) ? `<span class="value-tag">melhor valor</span>` : "";
+        const val = kg ? `<div class="lval">${brl(kg)}/kg</div>` : "";
         const msgPreco = p.from ? `a partir de ${precoTxt}` : precoTxt;
         const msg = `Olá! Quero encomendar o Bolo de Rolo *${p.nome}* (${s.g}), ${msgPreco}. Pode me ajudar? 🧡`;
-        return `<a class="size-btn" href="${waURL(msg)}" target="_blank" rel="noopener">
-                  ${valTag}
-                  <span class="left"><span class="sz">${s.g}</span>${perTxt}</span>
-                  <span class="right"><span class="pr">${fromTag}<b>${precoTxt}</b></span>${waIcon}</span>
-                </a>`;
+        return `<a class="line" href="${waURL(msg)}" target="_blank" rel="noopener">
+                  <span class="lname">${s.g}</span>
+                  <span class="lead"></span>
+                  ${goIcon}
+                  <span class="lprice">${fromTag}${precoTxt}</span>
+                </a>${val}`;
       }).join("");
-
-      const badge = p.hot
-        ? `<span class="badge hot"><svg><use href="#i-fire"/></svg>mais pedido</span>`
-        : `<span class="badge"><svg><use href="#i-hand"/></svg>artesanal</span>`;
-      const serves = p.serves
-        ? `<div class="serves"><svg><use href="#i-users"/></svg>${p.serves}</div>` : "";
-
-      const photo = `<div class="photo">${p.img
-          ? `<img src="${p.img}" alt="Bolo de Rolo ${p.nome}" loading="lazy">`
-          : `<div class="ph"><svg><use href="#i-img"/></svg><span>foto em breve</span></div>`}</div>`;
-
-      return `<article class="card">
-                ${photo}
-                <div class="card-body">
-                  <div class="toprow">
-                    <span class="cardic"><svg><use href="#${p.icon}"/></svg></span>
-                    ${badge}
-                  </div>
-                  <h3>${p.nome}</h3>
-                  <p class="desc">${p.desc||""}</p>
+      const tag = p.hot ? `<span class="tag">Mais pedido</span>` : "";
+      const serves = p.serves ? `<div class="pserves">${p.serves}</div>` : "";
+      const photo = p.img
+        ? `<img src="${p.img}" alt="Bolo de Rolo ${p.nome}" loading="lazy">`
+        : `<div class="ph"><svg><use href="#i-img"/></svg></div>`;
+      return `<article class="piece">
+                <div class="pno">${String(idx+1).padStart(2,"0")}</div>
+                <div class="pphoto">${photo}</div>
+                <div class="pmain">
+                  <div class="pname"><h3>${p.nome}</h3>${tag}</div>
+                  <p class="pdesc">${p.desc||""}</p>
                   ${serves}
-                  <div class="sizes">${sizes}</div>
+                  <div class="lines">${lines}</div>
                 </div>
               </article>`;
     }).join("");
   });
 
-  // WhatsApp em todos data-wa
-  document.querySelectorAll('[data-wa]').forEach(el=>{
-    el.href = waURL(el.dataset.wa); el.target="_blank"; el.rel="noopener";
-  });
-
-  // bandeirinhas juninas (qtd se ajusta na largura)
+  // bandeirinhas juninas
   const bunting = document.querySelector('.bunting');
   if(bunting){
-    const n = Math.min(40, Math.ceil(window.innerWidth/28));
+    const n = Math.min(48, Math.ceil(window.innerWidth/24));
     bunting.innerHTML = Array.from({length:n},()=>"<i></i>").join("");
   }
 
   // ============ GALERIA: troque por suas fotos ============
-  // ex: {img:"fotos/bolo1.jpg", alt:"Bolo de rolo goiabada"}
-  const GALLERY = [
-    {img:"",alt:"Foto 1"},
-    {img:"",alt:"Foto 2"},
-    {img:"",alt:"Foto 3"},
-    {img:"",alt:"Foto 4"}
-  ];
+  const GALLERY = [{img:"",alt:"Foto 1"},{img:"",alt:"Foto 2"},{img:"",alt:"Foto 3"},{img:"",alt:"Foto 4"}];
   const gg = document.getElementById('galeria-grid');
-  if(gg){
-    gg.innerHTML = GALLERY.map(s=>`<div class="shot">${s.img
-      ? `<img src="${s.img}" alt="${s.alt||''}" loading="lazy">`
-      : `<div class="ph"><svg><use href="#i-img"/></svg></div>`}</div>`).join("");
-  }
+  if(gg) gg.innerHTML = GALLERY.map(s=>`<div class="shot">${s.img
+    ? `<img src="${s.img}" alt="${s.alt||''}" loading="lazy">`
+    : `<div class="ph"><svg><use href="#i-img"/></svg></div>`}</div>`).join("");
+
+  // WhatsApp em todos data-wa
+  document.querySelectorAll('[data-wa]').forEach(el=>{ el.href=waURL(el.dataset.wa); el.target="_blank"; el.rel="noopener"; });
 
   // scroll reveal
-  const io = new IntersectionObserver(es=>{
-    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.12});
+  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} }),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
