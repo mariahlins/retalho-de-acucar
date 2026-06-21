@@ -95,7 +95,7 @@
   .creds span{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft)}
 
   /* ---------- SECAO EDITORIAL ---------- */
-  section.chapter{padding:58px 0 8px}
+  section.chapter{padding:58px 0 8px;scroll-margin-top:66px}
   .chap-head{display:flex;align-items:flex-end;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:34px}
   .chap-head .no{font-family:'Fraunces',serif;font-size:clamp(40px,8vw,72px);font-weight:500;line-height:.8;color:var(--accent)}
   .chap-head .tt{flex:1}
@@ -201,6 +201,48 @@
   .colophon .links svg{width:17px;height:17px;fill:currentColor}
   .colophon small{display:block;color:#8C7A60;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;letter-spacing:.5px;margin-top:24px}
 
+  /* ---------- ABAS DE CATEGORIA (mobile) ---------- */
+  .tabs{display:none}
+  @media(max-width:820px){
+    .tabs{display:block;position:sticky;top:0;z-index:55;
+      background:rgba(247,240,225,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+    .tabs .tabrow{display:flex;gap:8px;overflow-x:auto;padding:11px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .tabs .tabrow::-webkit-scrollbar{display:none}
+    .tabs a{flex:0 0 auto;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.3px;
+      text-decoration:none;color:var(--ink-2);padding:9px 16px;border:1px solid var(--rule-2);border-radius:999px;
+      white-space:nowrap;transition:.15s}
+    .tabs a.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  }
+
+  /* ---------- PEDIDO FACIL NO CELULAR ---------- */
+  @media(max-width:700px){
+    .lines{gap:9px;max-width:none}
+    .line{align-items:center;gap:12px;padding:13px 14px;border:1px solid var(--rule-2);border-radius:11px;background:#fff8ec}
+    .line:first-child{border-top:1px solid var(--rule-2)}
+    .line:hover{color:inherit}
+    .line .lead{display:none}
+    .line .lname{font-size:15px}
+    .line .lprice{margin-left:auto;font-size:19px}
+    .line .go{order:5;opacity:1;transform:none;background:var(--wa);color:#fff;
+      padding:9px 14px;border-radius:999px;font-size:11px}
+    .line .go svg{width:14px;height:14px;fill:#fff}
+    .lval{margin:-4px 0 2px 2px}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 18px}
+    .masthead{padding:30px 18px 0}
+    .masthead h1{font-size:clamp(42px,13vw,90px);letter-spacing:-1px}
+    .masthead .dbl-rule{margin-top:16px}
+    .opener{padding-top:26px}
+    .opener .standfirst{font-size:19px}
+    .opener .standfirst::first-letter{font-size:60px}
+    .creds div{flex:1 0 100%;border-right:none;border-bottom:1px solid var(--rule);padding:14px 10px}
+    .creds div:last-child{border-bottom:none}
+    .chap-head{gap:12px;padding-bottom:12px;margin-bottom:24px}
+    section.chapter{padding:44px 0 6px}
+    .colophon{margin-top:44px;padding:48px 20px}
+  }
+
   /* ---------- STICKY MOBILE ---------- */
   .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;
     padding:11px 16px calc(11px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--rule-2)}
@@ -238,6 +280,16 @@
   <div class="sub">Bolo de Rolo Artesanal</div>
   <div class="dbl-rule"><span></span><span></span></div>
 </div>
+
+<nav class="tabs" aria-label="Categorias do cardápio">
+  <div class="tabrow">
+    <a href="#tradicionais">Tradicionais</a>
+    <a href="#juninos">Juninos</a>
+    <a href="#gourmet">Gourmet</a>
+    <a href="#festas">Festas</a>
+    <a href="#galeria">Galeria</a>
+  </div>
+</nav>
 
 <main class="wrap">
 
@@ -464,6 +516,21 @@
   // scroll reveal
   const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} }),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // scrollspy: destaca a aba da secao visivel
+  const tabLinks = [...document.querySelectorAll('.tabs a')];
+  const spySecs  = ['tradicionais','juninos','gourmet','festas','galeria'].map(id=>document.getElementById(id)).filter(Boolean);
+  if(tabLinks.length){
+    const spy = new IntersectionObserver(es=>{
+      es.forEach(e=>{ if(e.isIntersecting){
+        const id = e.target.id;
+        tabLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+        const act = document.querySelector('.tabs a.active');
+        if(act) act.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+      }});
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    spySecs.forEach(s=>spy.observe(s));
+  }
 </script>
 
 </body>
